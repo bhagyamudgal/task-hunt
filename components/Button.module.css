@@ -1,0 +1,33 @@
+.button {
+  background: var(--orange);
+  width: 130px;
+  height: 48px;
+  color: var(--pureWhite);
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  margin: 10px;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+}
+
+@media only screen and (max-width: 1150px) {
+  .button {
+    width: 100px !important;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .button {
+    width: 150px !important;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .button {
+    width: 110px !important;
+    font-size: 20px;
+  }
+}
