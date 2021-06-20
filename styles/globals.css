@@ -1,5 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --white: rgba(236.93750202655792, 236.93750202655792, 236.93750202655792, 1);
+  --orange: rgba(246.0000005364418, 139.0000069141388, 105.00000134110451, 1);
+  --pureWhite: rgba(255, 255, 255, 1);
+  --black: rgba(21.81445464491844, 18.724072873592377, 18.724072873592377, 1);
+  --red: rgba(241.00000083446503, 82.00000271201134, 96.00000187754631, 1);
+}
+
 html,
 body {
+  background-color: var(--white);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
