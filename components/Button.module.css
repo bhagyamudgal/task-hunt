@@ -1,3 +1,16 @@
+.button_navigation {
+  background: var(--orange);
+  width: 130px;
+  height: 48px;
+  color: var(--pureWhite);
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  margin: 10px;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+}
+
 .button {
   background: var(--orange);
   width: 130px;
@@ -11,23 +24,33 @@
   border: none;
 }
 
+.box_shadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 @media only screen and (max-width: 1150px) {
-  .button {
+  .button_navigation {
     width: 100px !important;
     font-size: 20px;
   }
 }
 
 @media only screen and (max-width: 940px) {
-  .button {
+  .button_navigation {
     width: 150px !important;
     font-size: 20px;
   }
 }
 
 @media only screen and (max-width: 370px) {
-  .button {
+  .button_navigation {
     width: 110px !important;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 416px) {
+  .button {
+    width: 150px !important;
     font-size: 20px;
   }
 }
