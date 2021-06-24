@@ -1,0 +1,64 @@
+.body_features {
+  position: relative;
+  width: 60%;
+  margin-top: 40px;
+  left: 10%;
+}
+
+.heading_div h1 {
+  display: inline;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--black);
+  font-family: "Rancho", cursive;
+  font-size: 72px;
+  font-weight: 300;
+}
+.points_div {
+  width: 80%;
+  margin-left: 20px;
+}
+
+.points_div li {
+  list-style-image: url(/pencil_points.png);
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1090px) {
+  .points_div li {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 940px) {
+  .points_div li {
+    font-size: 20px;
+  }
+  .heading_div h1 {
+    font-size: 68px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .points_div {
+    margin-left: 0px;
+  }
+  .points_div li {
+    font-size: 18px;
+  }
+  .heading_div h1 {
+    font-size: 64px;
+  }
+  .body_features {
+    left: 7%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .body_features {
+    margin: auto;
+    left: 0%;
+    width: 80%;
+  }
+  .points_div {
+    width: auto;
+  }
+}

@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../components/navigation.module.css";
 import Button from "../components/Button";
+import { useRouter } from "next/router";
 
 function Navigation(props) {
+  const router = useRouter();
   const [displayMenu, setdisplayMenu] = useState(false);
 
   function displayMenuHandler() {
@@ -22,7 +24,7 @@ function Navigation(props) {
         <div className={styles.nav_items}>
           <span
             className={
-              props.page === "home" ? styles.nav_item_active : styles.nav_item
+              router.pathname === "/" ? styles.nav_item_active : styles.nav_item
             }
           >
             <Link href="/">Home</Link>
@@ -30,7 +32,7 @@ function Navigation(props) {
 
           <span
             className={
-              props.page === "features"
+              router.pathname === "/features"
                 ? styles.nav_item_active
                 : styles.nav_item
             }
@@ -39,7 +41,7 @@ function Navigation(props) {
           </span>
           <span
             className={
-              props.page === "contact"
+              router.pathname === "/contact"
                 ? styles.nav_item_active
                 : styles.nav_item
             }
@@ -48,7 +50,9 @@ function Navigation(props) {
           </span>
         </div>
         <div className={styles.button_group}>
-          <Button text="Login" target="/login">Login</Button>
+          <Button text="Login" target="/login">
+            Login
+          </Button>
           <Button text="Register Now" target="/signup" width="230px">
             Register Now
           </Button>
@@ -75,14 +79,16 @@ function Navigation(props) {
         <div className={styles.nav_items_mobile}>
           <span
             className={
-              props.page === "home" ? styles.nav_item_active : styles.nav_item
+              router.pathname === "/"
+                ? styles.nav_item_active
+                : styles.nav_item
             }
           >
             <Link href="/">Home</Link>
           </span>
           <span
             className={
-              props.page === "features"
+              (router.pathname === "/features")
                 ? styles.nav_item_active
                 : styles.nav_item
             }
@@ -91,7 +97,7 @@ function Navigation(props) {
           </span>
           <span
             className={
-              props.page === "contact"
+              router.pathname === "/contact"
                 ? styles.nav_item_active
                 : styles.nav_item
             }

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
   --white: rgba(236.93750202655792, 236.93750202655792, 236.93750202655792, 1);
@@ -16,6 +17,9 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {

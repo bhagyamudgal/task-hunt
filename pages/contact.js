@@ -1,13 +1,8 @@
 import React from "react";
-import Navigation from "../components/Navigation";
+import Layout from "../layout/Layout";
 
 function ContactPage() {
-  return (
-    <>
-      <Navigation page="contact"></Navigation>
-      <h1>The Contacts Page</h1>
-    </>
-  );
+  return <h1>The Contacts Page</h1>;
 }
 
 export default ContactPage;
