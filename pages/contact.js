@@ -1,8 +1,95 @@
 import React from "react";
-import Layout from "../layout/Layout";
+import styles from "../styles/contact.module.css";
+import Input from "../components/Input";
+import Label from "../components/Label";
+import FormButton from "../components/FormButton";
+import { useState} from "react";
 
 function ContactPage() {
-  return <h1>The Contacts Page</h1>;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [reset, setReset] = useState(false);
+
+  function nameHandler(data) {
+    setName(data);
+  }
+  function emailHandler(data) {
+    setEmail(data);
+  }
+  function messageHandler(event) {
+    setMessage(event.target.value);
+  }
+
+  function contactFormHandler(event) {
+    event.preventDefault();
+    console.log("Form Submitted Successfully");
+    console.log(name);
+    console.log(email);
+    console.log(message);
+    event.target.reset();
+    setReset(true);
+    setTimeout(() => {
+      setReset(false);
+    }, 1000);
+  }
+
+  return (
+    <>
+      <div className={styles.body_contact}>
+        <div className={styles.heading_div}>
+          <h1>Contact Form</h1>
+        </div>
+        <div className={styles.contact_form}>
+          <form
+            id="contactform"
+            onSubmit={contactFormHandler}
+            className={styles.form}
+            autoComplete="off"
+          >
+            <div className={styles.form_elements}>
+              <Label for="name" text="Name"></Label>
+              <Input
+                id="name"
+                name="name"
+                type="text"
+                required="true"
+                height="40px"
+                value={nameHandler}
+                reset={reset}
+              />
+            </div>
+            <div className={styles.form_elements}>
+              <Label for="email" text="Email"></Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                required="true"
+                height="40px"
+                value={emailHandler}
+                reset={reset}
+              />
+            </div>
+            <div className={styles.form_elements}>
+              <Label for="message" text="Message"></Label>
+              <textarea
+                className={styles.message}
+                id="message"
+                name="message"
+                rows="5"
+                cols="51"
+                onChange={messageHandler}
+              ></textarea>
+            </div>
+            <div className={styles.form_elements}>
+              <FormButton type="submit" text="Send"></FormButton>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default ContactPage;
