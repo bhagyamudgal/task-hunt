@@ -18,9 +18,7 @@ function Layout(props) {
           background-size: cover;
           min-height: 100vh;
         }
-        .main{
-          overflow: overlap;
-        }}
+        }
       `}</style>
     </div>
   );
