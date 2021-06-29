@@ -1,0 +1,101 @@
+.body_signup {
+  position: relative;
+  width: 60%;
+  margin-top: 40px;
+  left: 5%;
+}
+.main_div {
+  display: flex;
+}
+
+.heading_div {
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+.heading_div h1 {
+  display: inline;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: var(--black);
+  font-family: "Rancho", cursive;
+  font-size: 72px;
+  font-weight: 300;
+}
+
+.icon_group{
+  display: flex;
+}
+.student_div {
+  width: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  user-select: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.teacher_div {
+  width: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  user-select: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+
+}
+.student_div:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+.teacher_div:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+.student_div:hover h3 {
+  color: var(--red);
+}
+.teacher_div:hover h3 {
+  color: var(--red);
+}
+.student_div h3 {
+  font-family: Rancho;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0%;
+}
+.teacher_div h3 {
+  font-family: Rancho;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .heading_div h1 {
+    margin-left: 25px;
+    font-size: 68px;
+  }
+  .main_div {
+    flex-direction: column
+  }
+  
+}
+@media only screen and (max-width: 850px) {
+  .heading_div h1 {
+    font-size: 66px;
+  }
+  .body_signup {
+    left: 7%;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .body_signup {
+    margin: auto;
+    left: 0%;
+    width: 80%;
+  }
+}
