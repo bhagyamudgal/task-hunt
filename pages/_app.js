@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
 
     const handleComplete = (url) => {
       setTimeout(() => {
-        router.isReady && setLoading(false);
+        setLoading(false);
       }, 1000);
     };
 
@@ -40,8 +40,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {loading && <Loading />}
-      <Layout onload={loadingHandler}>
+      <Loading loading={loading} />
+      <Layout loading={loading} onload={loadingHandler}>
         <Head>
           <meta
             name="viewport"

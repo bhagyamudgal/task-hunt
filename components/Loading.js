@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./Loading.module.css";
-import Image from "next/image";
-import Link from "next/link";
 
-function Loading() {
+function Loading(props) {
   return (
-    <div className={styles.body_loading}>
+    <div className={props.loading ? styles.body_loading : styles.none}>
       <div className={styles.lds_ellipsis}>
         <div></div>
         <div></div>

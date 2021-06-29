@@ -4,6 +4,9 @@
   justify-content: center;
   height: 100vh;
 }
+.none{
+  display: none;
+}
 .lds_ellipsis {
   display: inline-block;
   position: relative;
