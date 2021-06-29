@@ -5,6 +5,13 @@
   background-image: url(../public/logo.png);
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.logo:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .none {
@@ -43,7 +50,7 @@
   padding: 10px;
 }
 
-.nav_item :hover{
+.nav_item :hover {
   color: var(--orange);
 }
 

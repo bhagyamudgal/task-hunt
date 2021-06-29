@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../components/navigation.module.css";
@@ -14,12 +14,22 @@ function Navigation(props) {
     if (displayMenu) setdisplayMenu(false);
     else setdisplayMenu(true);
   }
+  function logoNavHandler() {
+    router.pathname !== "/" && router.push("/");
+  }
+
+  useEffect(() => {
+    if (displayMenu) {
+      setdisplayMenu(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.asPath]);
 
   return (
     <>
       <nav className={styles.nav}>
         <div>
-          <div className={styles.logo}></div>
+          <div className={styles.logo} onClick={logoNavHandler} />
         </div>
         <div className={styles.nav_items}>
           <span
@@ -50,12 +60,16 @@ function Navigation(props) {
           </span>
         </div>
         <div className={styles.button_group}>
-          <Button text="Login" target="/login">
-            Login
-          </Button>
-          <Button text="Register Now" target="/signup" width="230px">
-            Register Now
-          </Button>
+          {router.pathname !== "/login" && (
+            <Button text="Login" target="/login">
+              Login
+            </Button>
+          )}
+          {router.pathname !== "/signup" && (
+            <Button text="Register Now" target="/signup" width="230px">
+              Register Now
+            </Button>
+          )}
         </div>
         <div className={styles.menu_icon} onClick={displayMenuHandler}>
           {displayMenu ? (
@@ -79,16 +93,14 @@ function Navigation(props) {
         <div className={styles.nav_items_mobile}>
           <span
             className={
-              router.pathname === "/"
-                ? styles.nav_item_active
-                : styles.nav_item
+              router.pathname === "/" ? styles.nav_item_active : styles.nav_item
             }
           >
             <Link href="/">Home</Link>
           </span>
           <span
             className={
-              (router.pathname === "/features")
+              router.pathname === "/features"
                 ? styles.nav_item_active
                 : styles.nav_item
             }
@@ -107,12 +119,16 @@ function Navigation(props) {
         </div>
 
         <div className={styles.button_group_mobile}>
-          <Button text="Login" target="/login">
-            Login
-          </Button>
-          <Button text="Register Now" target="/signup" width="240px">
-            Register Now
-          </Button>
+          {router.pathname !== "/login" && (
+            <Button text="Login" target="/login">
+              Login
+            </Button>
+          )}
+          {router.pathname !== "/signup" && (
+            <Button text="Register Now" target="/signup" width="240px">
+              Register Now
+            </Button>
+          )}
         </div>
       </div>
     </>
