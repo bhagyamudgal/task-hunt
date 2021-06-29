@@ -18,6 +18,8 @@ function FormButton(props) {
           border: none;
           margin: auto;
           user-select: none;
+          transition: 0.5s;
+          cursor: pointer;
         }
         .form_button:hover {
           background-color: lightgreen;

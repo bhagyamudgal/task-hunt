@@ -9,6 +9,11 @@
   cursor: pointer;
   user-select: none;
   border: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.button_navigation:hover {
+  background-color: var(--red);
 }
 
 .button {
@@ -22,6 +27,13 @@
   cursor: pointer;
   user-select: none;
   border: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.button:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  background-color: var(--red);
 }
 
 .box_shadow {
