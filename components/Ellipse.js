@@ -11,7 +11,7 @@ function Ellipse() {
         <Image
           width="435"
           height="791"
-          src="/ellipse_features.svg"
+          src="/ellipse_features.jpg"
           alt="ellipse_features"
         />
       )}
@@ -19,11 +19,26 @@ function Ellipse() {
         <Image
           width="435"
           height="791"
-          src="/ellipse_contact.svg"
+          src="/ellipse_contact.jpg"
           alt="ellipse_contact"
         />
       )}
-      
+      {router.pathname === "/signup" && (
+        <Image
+          width="435"
+          height="791"
+          src="/ellipse_signup.jpg"
+          alt="ellipse_signup"
+        />
+      )}
+      {router.pathname === "/login" && (
+        <Image
+          width="435"
+          height="791"
+          src="/ellipse_signup.jpg"
+          alt="ellipse_signup"
+        />
+      )}
     </div>
   );
 }
