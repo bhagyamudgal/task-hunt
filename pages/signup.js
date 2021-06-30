@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../styles/signup.module.css";
-
+import StudentSignupForm from "../components/StudentSignupForm";
 function signup() {
   function studentSignupHandler(params) {}
 
@@ -33,6 +33,7 @@ function signup() {
           </div>
         </div>
       </div>
+      <StudentSignupForm />
     </div>
   );
 }

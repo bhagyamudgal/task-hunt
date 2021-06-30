@@ -14,6 +14,11 @@ function Label(props) {
           font-size: 22px;
           color: var(--pureWhite);
         }
+        @media only screen and (max-width: 655px) {
+          .label {
+            margin-right:20px;
+          }
+        }
       `}</style>
     </>
   );

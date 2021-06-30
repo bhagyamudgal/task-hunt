@@ -1,0 +1,175 @@
+.studentSignup_form {
+  display: flex;
+  justify-content: center;
+  width: 881px;
+  height: 455px;
+  background: var(--orange);
+  box-shadow: 1px 1px 6px var(--black);
+  margin: 30px auto;
+}
+
+.form {
+  width: 100%;
+}
+
+.form_elements {
+  display: flex;
+  width: 70%;
+  margin: 20px auto;
+  line-height: 40px;
+}
+.form_elements label {
+  width: 30%;
+  margin-right: 50px;
+}
+.radio_group {
+  display: flex;
+  width: 70%;
+}
+.radio_group div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.radio_group div label {
+  margin-top: 5px;
+}
+.radio_button {
+  width: 25px;
+  height: 17px;
+}
+.form_element_course {
+  display: flex;
+  justify-content: space-between;
+}
+.form_element_course select {
+  min-width: 30%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+.form_element_course select:focus {
+  border: 2px solid black;
+}
+.form_element_course div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form_elements .organization {
+  width: 80%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+.form_elements .organization:focus {
+  border: 2px solid black;
+}
+
+@media only screen and (max-width: 1410px) {
+  .studentSignup_form {
+    width: 690px;
+  }
+  .form_elements {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .student_id {
+    text-align: center;
+  }
+  .studentSignup_form {
+    width: 590px;
+    height: 550px;
+  }
+  .form_elements {
+    width: 90%;
+  }
+  .radio_group div label {
+    margin-right: 20px;
+  }
+  .radio_group {
+    width: 90%;
+  }
+  .radio_group div {
+    justify-content: unset;
+  }
+  .form_element_course div {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form_element_course div label {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 655px) {
+  .studentSignup_form {
+    width: 440px;
+    height: 590px;
+  }
+  .radio_group {
+    justify-content: space-between;
+  }
+  .radio_group div {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .radio_group div label {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+  .form_element_organization {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form_element_organization label {
+    width: auto;
+    margin: 0%;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .studentSignup_form {
+    width: 340px;
+    height: 810px;
+  }
+  .form_elements {
+    flex-direction: column;
+    text-align: left;
+    width: 90%;
+  }
+  .form_elements label {
+    width: 40%;
+  }
+  .form_element_course div {
+    flex-direction: row;
+  }
+  .form_element_course div label {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  .form_element_organization {
+    align-items: unset;
+  }
+  .form_elements .organization {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .studentSignup_form {
+    width: 270px;
+    height: 840px;
+  }
+}
