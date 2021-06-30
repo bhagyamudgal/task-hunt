@@ -51,6 +51,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
+  background-color: var(--pureWhite);
 }
 .form_element_course select:focus {
   border: 2px solid black;
@@ -70,6 +71,9 @@
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
+}
+.form_elements .organization {
+  background-color: var(--pureWhite);
 }
 .form_elements .organization:focus {
   border: 2px solid black;
