@@ -7,12 +7,15 @@ import { useState } from "react";
 function SignupPage() {
   const [student, setStudent] = useState(false);
   const [teacher, setTeacher] = useState(false);
+  const [textDisplay, setTextDisplay] = useState(true);
   function studentSignupHandler(event) {
+    setTextDisplay(false);
     setTeacher(false);
     setStudent(true);
   }
 
   function teacherSignupHandler(event) {
+    setTextDisplay(false);
     setStudent(false);
     setTeacher(true);
   }
@@ -27,9 +30,7 @@ function SignupPage() {
           <div
             tabIndex="0"
             className={`${
-              student
-                ? styles.student_div_focus
-                : styles.student_div
+              student ? styles.student_div_focus : styles.student_div
             }`}
             onClick={studentSignupHandler}
           >
@@ -41,11 +42,12 @@ function SignupPage() {
             />
             <h3>Student</h3>
           </div>
-          <div className={`${
-              teacher
-                ? styles.teacher_div_focus
-                : styles.teacher_div
-            }`} onClick={teacherSignupHandler}>
+          <div
+            className={`${
+              teacher ? styles.teacher_div_focus : styles.teacher_div
+            }`}
+            onClick={teacherSignupHandler}
+          >
             <Image
               src="/teacher-icon.png"
               alt="teacher-icon"
@@ -56,6 +58,11 @@ function SignupPage() {
           </div>
         </div>
       </div>
+      {textDisplay && (
+        <div className={styles.text}>
+          <h3>Please Select From Above Given Options.</h3>
+        </div>
+      )}
       {student && <StudentSignupForm />}
       {teacher && <TeacherSignupForm />}
     </div>

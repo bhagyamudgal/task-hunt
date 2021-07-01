@@ -72,9 +72,8 @@
   cursor: pointer;
   transform: scale(1.2);
   -webkit-transform: scale(1.2);
-
 }
-.teacher_div_focus{
+.teacher_div_focus {
   width: 135px;
   display: flex;
   flex-direction: column;
@@ -86,7 +85,6 @@
   cursor: pointer;
   transform: scale(1.2);
   -webkit-transform: scale(1.2);
- 
 }
 .student_div_focus h3 {
   font-family: Rancho;
@@ -119,6 +117,18 @@
   margin: 0%;
 }
 
+.text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  margin: auto;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media only screen and (max-width: 1020px) {
   .body_signup {
     width: 100%;
@@ -139,7 +149,10 @@
   }
 }
 @media only screen and (max-width: 619px) {
-  .main_div{
+  .main_div {
     flex-direction: column;
+  }
+  .text {
+    min-height: 200px;
   }
 }
