@@ -182,6 +182,7 @@ function StudentSignupForm() {
             ref={organizationRef}
             required
           >
+            <option value="SELECT">SELECT</option>
             <option value="Maharaja Surajmal Institute">
               Maharaja Surajmal Institute
             </option>
