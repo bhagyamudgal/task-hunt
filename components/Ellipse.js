@@ -6,7 +6,13 @@ import { useRouter } from "next/router";
 function Ellipse() {
   const router = useRouter();
   return (
-    <div className={`${router.pathname==="/signup" ? styles.body_ellipse_signup : styles.body_ellipse}`}>
+    <div
+      className={`${
+        router.pathname === "/signup" || router.pathname === "/login"
+          ? styles.body_ellipse_signup
+          : styles.body_ellipse
+      }`}
+    >
       {router.pathname === "/features" && (
         <Image
           width="435"
