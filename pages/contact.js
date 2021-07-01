@@ -3,7 +3,8 @@ import styles from "../styles/contact.module.css";
 import Input from "../components/Input";
 import Label from "../components/Label";
 import FormButton from "../components/FormButton";
-import { useState} from "react";
+import Head from "next/head";
+import { useState } from "react";
 
 function ContactPage() {
   const [name, setName] = useState("");
@@ -36,6 +37,24 @@ function ContactPage() {
 
   return (
     <>
+      <Head>
+        <title>Contact | Task Hunt</title>
+
+        <meta name="title" content="Contact | Task Hunt" />
+        <meta
+          name="description"
+          content="Task Hunt, Contact us if you need any help or to give us feedback."
+        />
+        <meta
+          name="keywords"
+          content="contact, task hunt contact , task, hunt, taskhunt, ats, assignment tracking sytem, task hunt, assignments, students, teachers"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="10 days" />
+        <meta name="author" content="Task Hunt - Bhagya Mudgal" />
+      </Head>
       <div className={styles.body_contact}>
         <div className={styles.heading_div}>
           <h1>Contact Form</h1>
