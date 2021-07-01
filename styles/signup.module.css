@@ -60,6 +60,52 @@
 .teacher_div:hover h3 {
   color: var(--red);
 }
+.student_div_focus {
+  width: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  user-select: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+
+}
+.teacher_div_focus{
+  width: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  user-select: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+ 
+}
+.student_div_focus h3 {
+  font-family: Rancho;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0%;
+}
+.teacher_div_focus h3 {
+  font-family: Rancho;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0%;
+}
+.student_div_focus h3 {
+  color: var(--red);
+}
+.teacher_div_focus h3 {
+  color: var(--red);
+}
 .student_div h3 {
   font-family: Rancho;
   font-size: 36px;
@@ -97,18 +143,3 @@
     flex-direction: column;
   }
 }
-/* @media only screen and (max-width: 850px) {
-  .heading_div h1 {
-    font-size: 66px;
-  }
-  .body_signup {
-    left: 7%;
-  }
-}
-@media only screen and (max-width: 740px) {
-  .body_signup {
-    margin: auto;
-    left: 0%;
-    width: 80%;
-  }
-} */

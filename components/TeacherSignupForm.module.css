@@ -1,0 +1,156 @@
+.teacherSignup_form {
+  display: flex;
+  justify-content: center;
+  width: 881px;
+  height: 455px;
+  background: var(--orange);
+  box-shadow: 1px 1px 6px var(--black);
+  margin: 30px auto;
+}
+
+.form {
+  width: 100%;
+}
+
+.form_elements {
+  display: flex;
+  width: 70%;
+  margin: 20px auto;
+  line-height: 40px;
+}
+.form_elements label {
+  width: 30%;
+  margin-right: 50px;
+}
+.radio_group {
+  display: flex;
+  width: 70%;
+}
+.radio_group div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.radio_group div label {
+  margin-top: 5px;
+}
+.radio_button {
+  width: 25px;
+  height: 17px;
+}
+
+.form_elements .select {
+  min-width: 65.5%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  background-color: var(--pureWhite);
+}
+.form_elements .select:focus {
+  border: 2px solid black;
+}
+
+.form_elements .organization {
+  width: 75%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+.form_elements .organization {
+  background-color: var(--pureWhite);
+}
+.form_elements .organization:focus {
+  border: 2px solid black;
+}
+
+@media only screen and (max-width: 1410px) {
+  .teacherSignup_form {
+    width: 690px;
+  }
+  .form_elements {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .teacher_id {
+    text-align: center;
+  }
+  .teacherSignup_form {
+    width: 590px;
+    height: 460px;
+  }
+  .form_elements {
+    width: 90%;
+  }
+  .radio_group div label {
+    margin-right: 20px;
+  }
+  .radio_group {
+    width: 90%;
+  }
+  .radio_group div {
+    justify-content: unset;
+  }
+}
+@media only screen and (max-width: 655px) {
+  .teacherSignup_form {
+    width: 440px;
+    height: 510px;
+  }
+  .radio_group {
+    justify-content: space-between;
+  }
+  .radio_group div {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .radio_group div label {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+  .form_element_organization {
+    flex-direction: column;
+  }
+  .form_element_organization label {
+    width: auto;
+    margin: 0%;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .teacherSignup_form {
+    width: 340px;
+    height: 710px;
+  }
+  .form_elements {
+    flex-direction: column;
+    text-align: left;
+    width: 90%;
+  }
+  .form_elements label {
+    width: 40%;
+  }
+  .form_element_organization {
+    align-items: unset;
+  }
+  .form_elements .organization {
+    width: 100%;
+  }
+  .form_element_width input{
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .teacherSignup_form {
+    width: 270px;
+    height: 720px;
+  }
+}

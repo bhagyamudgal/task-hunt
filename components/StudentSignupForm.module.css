@@ -52,6 +52,7 @@
   font-weight: normal;
   font-size: 16px;
   background-color: var(--pureWhite);
+  margin-right: 20px;
 }
 .form_element_course select:focus {
   border: 2px solid black;
@@ -59,7 +60,6 @@
 .form_element_course div {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .form_elements .organization {
@@ -116,6 +116,9 @@
     margin: auto;
     text-align: center;
   }
+  .form_element_course select {
+    margin-right: 0;
+  }
 }
 @media only screen and (max-width: 655px) {
   .studentSignup_form {
@@ -141,6 +144,9 @@
   .form_element_organization label {
     width: auto;
     margin: 0%;
+  }
+  .form_element_course select {
+    margin-right: 0;
   }
 }
 @media only screen and (max-width: 490px) {

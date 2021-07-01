@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 
 function Input(props) {
   const [width, setWidth] = useState(props.width);
@@ -8,7 +8,6 @@ function Input(props) {
   const [id, setId] = useState(props.id);
   const [isRequired, setisRequired] = useState(props.required);
   const [value, setValue] = useState("");
-  const [reset, setReset] = useState(false);
 
   function valueHandler(event) {
     setValue(event.target.value);
@@ -43,7 +42,7 @@ function Input(props) {
       )}
       <style jsx>{`
         .input {
-          width: ${width === undefined && "100%"};
+          width: ${width === undefined ? "100%" : props.width};
           height: ${height};
           background-color: var(--pureWhite);
           border: none;

@@ -1,15 +1,21 @@
 import React from "react";
-import styles from "../components/StudentSignupFOrm.module.css";
+import styles from "../components/StudentSignupForm.module.css";
 import Input from "../components/Input";
 import Label from "../components/Label";
 import FormButton from "../components/FormButton";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function StudentSignupForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [studentId, setStudentId] = useState("");
+  const [gender, setGender] = useState("");
   const [reset, setReset] = useState(false);
+
+  const courseRef = useRef();
+  const yearRef = useRef();
+  const semesterRef = useRef();
+  const organizationRef = useRef();
 
   function nameHandler(data) {
     setName(data);
@@ -20,13 +26,21 @@ function StudentSignupForm() {
   function studentIdHandler(data) {
     setStudentId(data);
   }
+  function genderHandler(event) {
+    setGender(event.target.value);
+  }
 
   function studentSignupFormHandler(event) {
     event.preventDefault();
     console.log("Form Submitted Successfully");
+    console.log(studentId);
     console.log(name);
     console.log(email);
-    console.log(message);
+    console.log(gender);
+    console.log(courseRef.current.value);
+    console.log(yearRef.current.value);
+    console.log(semesterRef.current.value);
+    console.log(organizationRef.current.value);
     event.target.reset();
     setReset(true);
     setTimeout(() => {
@@ -87,6 +101,8 @@ function StudentSignupForm() {
                 id="male"
                 name="gender"
                 value="Male"
+                onChange={genderHandler}
+                required
               />
               <Label for="male" text="Male"></Label>
             </div>
@@ -97,6 +113,8 @@ function StudentSignupForm() {
                 id="female"
                 name="gender"
                 value="Female"
+                onChange={genderHandler}
+                required
               />
               <Label for="female" text="Female"></Label>
             </div>
@@ -107,6 +125,8 @@ function StudentSignupForm() {
                 id="other"
                 name="gender"
                 value="Other"
+                onChange={genderHandler}
+                required
               />
               <Label for="other" text="Other"></Label>
             </div>
@@ -117,7 +137,8 @@ function StudentSignupForm() {
         >
           <div>
             <Label for="course" text="Course"></Label>
-            <select name="course" id="course">
+            <select name="course" id="course" ref={courseRef} required>
+              <option value="SELECT">SELECT</option>
               <option value="BCA">BCA</option>
               <option value="BBA">BBA</option>
               <option value="BCOM">BCOM</option>
@@ -126,7 +147,10 @@ function StudentSignupForm() {
           </div>
           <div>
             <Label for="year" text="Year"></Label>
-            <select name="year" id="year">
+            <select name="year" id="year" ref={yearRef} required>
+              <option value="SELECT" selected>
+                SELECT
+              </option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -134,7 +158,10 @@ function StudentSignupForm() {
           </div>
           <div>
             <Label for="semester" text="Semester"></Label>
-            <select name="semester" id="semester">
+            <select name="semester" id="semester" ref={semesterRef} required>
+              <option value="SELECT" selected>
+                SELECT
+              </option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -152,6 +179,8 @@ function StudentSignupForm() {
             name="organization"
             id="organization"
             className={styles.organization}
+            ref={organizationRef}
+            required
           >
             <option value="Maharaja Surajmal Institute">
               Maharaja Surajmal Institute
