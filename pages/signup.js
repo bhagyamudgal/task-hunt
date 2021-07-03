@@ -24,7 +24,7 @@ function SignupPage() {
   return (
     <>
       <Head>
-        <title>Login | Task Hunt</title>
+        <title>Signup | Task Hunt</title>
 
         <meta name="title" content="Signup | Task Hunt" />
         <meta
