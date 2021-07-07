@@ -1,0 +1,19 @@
+.profile_main {
+  width: 300px;
+  height: 170px;
+  background-color: var(--red);
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.profile_main h3 {
+  font-family: Rancho;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 46px;
+  color: var(--pureWhite);
+}

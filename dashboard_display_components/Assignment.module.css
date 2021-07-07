@@ -1,0 +1,66 @@
+.assignment_body {
+  width: 90%;
+  border-radius: 20px;
+  margin: 15px auto;
+  background-color: var(--white);
+  color: var(--black);
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.subject_div {
+  margin: 0px 15px;
+  min-width: 240px;
+}
+
+.date_div {
+  display: flex;
+  align-items: center;
+  min-width: 150px;
+}
+.date_div h4 {
+  margin: 0px 10px;
+}
+
+.date_icon_div {
+  background-color: var(--red);
+  display: inline-flex;
+  padding: 2px;
+  max-height: 26px;
+  user-select: none;
+}
+
+.button_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button_div button {
+  min-height: 40px;
+  margin: 0px 15px;
+  min-width: 80px;
+  background: var(--orange);
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.button_div button:hover {
+  transform: scale(1.2);
+}

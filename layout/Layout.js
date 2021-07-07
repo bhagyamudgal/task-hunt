@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "../components/Navigation";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 function Layout(props) {
@@ -27,7 +26,11 @@ function Layout(props) {
             display: block;
           }
         `}</style>
-        <Navigation></Navigation>
+        {(router.pathname === "/" ||
+          router.pathname === "/features" ||
+          router.pathname === "/contact" ||
+          router.pathname === "/login" ||
+          router.pathname === "/signup") && <Navigation></Navigation>}
         <main className="main">{props.children}</main>
       </div>
     </>
