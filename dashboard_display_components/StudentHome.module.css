@@ -1,0 +1,39 @@
+.heading_div {
+  width: 90%;
+  margin: 10px auto;
+}
+.heading_div h3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  color: var(--pureWhite);
+  margin: 10px 0px;
+}
+
+.assignment_div {
+  margin-right: 10px;
+  height: 80%;
+  overflow-y: auto;
+}
+
+.assignment_div::-webkit-scrollbar {
+  width: 15px;
+
+}
+
+.assignment_div::-webkit-scrollbar-track {
+  background-color: var(--white);
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.assignment_div::-webkit-scrollbar-thumb {
+  background-color: var(--orange);
+  border-radius: 10px;
+
+}
+.assignment_div::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(245, 117, 78);
+
+}

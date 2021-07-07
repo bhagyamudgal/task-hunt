@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 881px;
-  height: 455px;
+  height: 515px;
   background: var(--orange);
   box-shadow: 1px 1px 6px var(--black);
   margin: 30px auto;
@@ -71,6 +71,47 @@
   border: 2px solid black;
 }
 
+.error_div {
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+.errorResponse_div {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+.success_div {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  color: green;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+
+.button {
+  background: var(--white);
+  width: 140px;
+  height: 48px;
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  margin: 10px;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+.button:hover {
+  background-color: lightgreen;
+}
+
 @media only screen and (max-width: 1410px) {
   .teacherSignup_form {
     width: 690px;
@@ -85,7 +126,7 @@
   }
   .teacherSignup_form {
     width: 590px;
-    height: 460px;
+    height: 520px;
   }
   .form_elements {
     width: 90%;
@@ -103,7 +144,7 @@
 @media only screen and (max-width: 655px) {
   .teacherSignup_form {
     width: 440px;
-    height: 510px;
+    height: 570px;
   }
   .radio_group {
     justify-content: space-between;
@@ -128,7 +169,7 @@
 @media only screen and (max-width: 490px) {
   .teacherSignup_form {
     width: 340px;
-    height: 710px;
+    height: 780px;
   }
   .form_elements {
     flex-direction: column;
@@ -148,9 +189,10 @@
     width: 100% !important;
   }
 }
+
 @media only screen and (max-width: 375px) {
   .teacherSignup_form {
     width: 270px;
-    height: 720px;
+    height: 770px;
   }
 }
