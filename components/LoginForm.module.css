@@ -1,8 +1,9 @@
 .login_form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 681px;
-  height: 215px;
+  height: 275px;
   background: var(--orange);
   box-shadow: 1px 1px 6px var(--black);
   margin: 30px auto;
@@ -28,6 +29,15 @@
   align-items: center;
 }
 
+.message_div{
+  width: 70%;
+  margin:auto;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-family: "Poppins";
+}
+
 @media only screen and (max-width: 1400px) {
   .login_form {
     width: 600px;
@@ -47,7 +57,7 @@
 @media only screen and (max-width: 550px) {
   .login_form {
     width: 400px;
-    height: 290px;
+    height: 360px;
   }
   .form_elements {
     flex-direction: column;
@@ -59,7 +69,7 @@
 @media only screen and (max-width: 450px) {
   .login_form {
     width: 280px;
-    height: 290px;
+    height: 380px;
   }
   .form_elements {
     flex-direction: column;

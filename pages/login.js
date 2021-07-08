@@ -2,6 +2,7 @@ import React from "react";
 import LoginForm from "../components/LoginForm";
 import styles from "../styles/login.module.css";
 import Head from "next/head";
+import { getSession } from "next-auth/client";
 
 function LoginPage() {
   return (
@@ -34,5 +35,20 @@ function LoginPage() {
     </>
   );
 }
+export const getServerSideProps = async (ctx) => {
+  const session = await getSession({ req: ctx.req });
 
+  if (session) {
+    return {
+      redirect: {
+        destination: "/dashboard",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+};
 export default LoginPage;

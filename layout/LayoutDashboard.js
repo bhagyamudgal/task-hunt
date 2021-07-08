@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LayoutDashboard.module.css";
-import DashboardNavigation from "../components/DahboardNavigation";
+import DashboardNavigation from "../components/DashboardNavigation";
 import DashboardDisplay from "../components/DashboardDisplay";
 import DashboardProfile from "../components/DashboardProfile";
 import Image from "next/image";
