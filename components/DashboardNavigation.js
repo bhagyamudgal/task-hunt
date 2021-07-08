@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./DashboardNavigation.module.css";
+import { signOut } from "next-auth/client";
 
-function DahboardNavigation() {
+function DashboardNavigation() {
+  function logoutHandler() {
+    signOut();
+  }
   return (
     <>
       <div className={styles.navigation}>
@@ -16,7 +20,6 @@ function DahboardNavigation() {
             />
           </span>
           <span tabIndex="0" className={styles.item_span}>
-            {" "}
             <Image
               width="40px"
               height="40px"
@@ -25,7 +28,6 @@ function DahboardNavigation() {
             />
           </span>
           <span tabIndex="0" className={styles.item_span}>
-            {" "}
             <Image
               width="40px"
               height="40px"
@@ -34,7 +36,11 @@ function DahboardNavigation() {
             />
           </span>
         </div>
-        <span tabIndex="0" className={styles.item_span_end}>
+        <span
+          tabIndex="0"
+          className={styles.item_span_end}
+          onClick={logoutHandler}
+        >
           <Image
             width="40px"
             height="40px"
@@ -47,4 +53,4 @@ function DahboardNavigation() {
   );
 }
 
-export default DahboardNavigation;
+export default DashboardNavigation;
