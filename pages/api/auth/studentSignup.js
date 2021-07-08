@@ -28,13 +28,11 @@ async function handler(req, res) {
 
   const db = client.db("users");
 
-  const existingUser = await db
-    .collection("students")
-    .findOne({
-      studentID: studentID,
-      email: email,
-      organization: organization,
-    });
+  const existingUser = await db.collection("students").findOne({
+    studentID: studentID,
+    email: email,
+    organization: organization,
+  });
 
   if (existingUser) {
     res.status(422).json({ message: "Student already exist." });
@@ -64,6 +62,7 @@ async function handler(req, res) {
     username: username,
     password: hashPassword,
     lastlogin: lastlogin,
+    type: "student",
   });
 
   res.status(201).json({ message: "Student created successfully" });

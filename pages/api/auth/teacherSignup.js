@@ -49,6 +49,7 @@ async function handler(req, res) {
     username: username,
     password: hashPassword,
     lastlogin: lastlogin,
+    type: "teacher",
   });
 
   res.status(201).json({ message: "Teacher created successfully" });
