@@ -8,3 +8,6 @@
   display: flex;
   flex-direction: column;
 }
+.width {
+  width: 85vw;
+}

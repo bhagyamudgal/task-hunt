@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Assignment.module.css";
+import styles from "./AssignmentCard.module.css";
 import Image from "next/image";
 
 function Assignment() {
