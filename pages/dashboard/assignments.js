@@ -2,14 +2,12 @@ import React from "react";
 import { getSession } from "next-auth/client";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
-import DashboardProfile from "../../components/DashboardProfile";
 
-function index() {
+function assignments() {
   return (
     <>
       <LayoutDashboard>
         <DashboardDisplay />
-        <DashboardProfile />
       </LayoutDashboard>
     </>
   );
@@ -33,4 +31,4 @@ export const getServerSideProps = async (ctx) => {
     props: { session },
   };
 };
-export default index;
+export default assignments;

@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./LayoutDashboard.module.css";
 import DashboardNavigation from "../components/DashboardNavigation";
-import DashboardDisplay from "../components/DashboardDisplay";
-import DashboardProfile from "../components/DashboardProfile";
 import Image from "next/image";
 
 function LayoutDashboard(props) {
@@ -16,8 +14,7 @@ function LayoutDashboard(props) {
         </div>
         <main className={styles.main}>
           <DashboardNavigation />
-          <DashboardDisplay />
-          <DashboardProfile text="Bhagya Mudgal"/>
+          {props.children}
         </main>
         <div className={styles.waves_div}>
           <Image
