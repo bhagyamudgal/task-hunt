@@ -36,7 +36,18 @@
   transform: scale(1.2);
   background-color: var(--orange);
 }
-.item_span:focus {
+.item_span_focus {
+  margin: 10px auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
   background-color: var(--orange);
 }
 .item_span_end {
@@ -56,4 +67,82 @@
 }
 .item_span_end:focus {
   background-color: var(--orange);
+}
+
+/* Tooltip text */
+.item_span .tooltip_text {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--orange);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.item_span:hover .tooltip_text {
+  visibility: visible;
+  opacity: 1;
+}
+/* Tooltip text */
+.item_span_focus .tooltip_text {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--orange);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.item_span_focus:hover .tooltip_text {
+  visibility: visible;
+  opacity: 1;
+}
+.item_span_end .tooltip_text {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--orange);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  margin-left: 20px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.item_span_end:hover .tooltip_text {
+  visibility: visible;
+  opacity: 1;
 }
