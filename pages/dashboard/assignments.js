@@ -1,15 +1,20 @@
 import React from "react";
 import { getSession } from "next-auth/client";
+import { Provider } from "react-redux";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
+import AssignmentsBody from "../../dashboard_display_components/AssignmentsBody";
+import store from "../../store/index";
 
 function assignments() {
   return (
-    <>
+    <Provider store={store}>
       <LayoutDashboard>
-        <DashboardDisplay />
+        <DashboardDisplay>
+          <AssignmentsBody />
+        </DashboardDisplay>
       </LayoutDashboard>
-    </>
+    </Provider>
   );
 }
 

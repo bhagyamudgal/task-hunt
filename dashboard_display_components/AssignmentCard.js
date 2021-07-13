@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./AssignmentCard.module.css";
 import Image from "next/image";
+import { assignmentDetailsActions } from "../store/index";
+import { useDispatch } from "react-redux";
 
-function Assignment() {
+function AssignmentCard() {
+  const dispatch = useDispatch();
+  function detailsHandler() {
+    dispatch(assignmentDetailsActions.setDisplayDetails(true));
+  }
   return (
     <div className={styles.assignment_body}>
       <span className={styles.container}>
@@ -24,15 +30,17 @@ function Assignment() {
       </span>
 
       <span className={styles.button_div}>
-        <button><Image
-              width="22px"
-              height="25px"
-              src="/dashboard-display-button.svg"
-              alt="dashboard-display-button"
-            /></button>
+        <button onClick={detailsHandler}>
+          <Image
+            width="22px"
+            height="25px"
+            src="/dashboard-display-button.svg"
+            alt="dashboard-display-button"
+          />
+        </button>
       </span>
     </div>
   );
 }
 
-export default Assignment;
+export default AssignmentCard;

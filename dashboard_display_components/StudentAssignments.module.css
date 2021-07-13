@@ -2,11 +2,11 @@
   width: 90%;
   margin: 10px auto;
 }
-.heading_div h3 {
+.heading_div h2 {
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
-  font-size: 26px;
+  font-size: 30px;
   color: var(--pureWhite);
   margin: 10px 0px;
 }

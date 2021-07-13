@@ -6,7 +6,7 @@ function StudentHome() {
   return (
     <>
       <div className={styles.heading_div}>
-        <h3>Assignments</h3>
+        <h2>Assignments</h2>
       </div>
       <div className={styles.assignment_div}>
         <AssignmentCard />
@@ -17,7 +17,7 @@ function StudentHome() {
         <AssignmentCard />
         <AssignmentCard />
         <AssignmentCard />
-        <AssignmentCard />
+        <AssignmentCard /> 
         <AssignmentCard />
         <AssignmentCard />
         <AssignmentCard />
