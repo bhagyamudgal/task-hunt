@@ -1,8 +1,14 @@
 import React from "react";
-import styles from "./AssignmentBody.module.css";
+import styles from "./AssignmentDetails.module.css";
 import Image from "next/image";
+import { assignmentDetailsActions } from "../store/index";
+import { useDispatch } from "react-redux";
 
-function AssignmentBody() {
+function AssignmentDetails() {
+  const dispatch = useDispatch();
+  function detailsHandler() {
+    dispatch(assignmentDetailsActions.setDisplayDetails(false));
+  }
   return (
     <>
       <div className={styles.assignment_body_div}>
@@ -37,7 +43,9 @@ function AssignmentBody() {
             <button type="button">Submit</button>
           </span>
           <span className={styles.back_div}>
-            <button type="button">Back</button>
+            <button type="button" onClick={detailsHandler}>
+              Back
+            </button>
           </span>
         </div>
       </div>
@@ -45,4 +53,4 @@ function AssignmentBody() {
   );
 }
 
-export default AssignmentBody;
+export default AssignmentDetails;
