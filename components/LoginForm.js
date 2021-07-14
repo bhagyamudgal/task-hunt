@@ -6,6 +6,7 @@ import LoadingForm from "../components/LoadingForm";
 import styles from "./LoginForm.module.css";
 import { signIn } from "next-auth/client";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -15,15 +16,27 @@ function LoginForm() {
   const [messageToggle, setMessageToggle] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [reset, setReset] = useState(false);
+  const [eye, setEye] = useState(false);
+  const [type, setType] = useState("password");
+
+  function usernameHandler(event) {
+    setUsername(event.target.value);
+  }
+
+  function passwordHandler(event) {
+    setPassword(event.target.value);
+  }
 
   const router = useRouter();
 
-  function usernameHandler(data) {
-    setUsername(data);
-  }
-  function passwordHandler(data) {
-    setPassword(data);
+  function eyeHandler() {
+    if (eye === false) {
+      setType("text");
+      setEye(true);
+    } else {
+      setType("password");
+      setEye(false);
+    }
   }
 
   async function LoginFormHandler(event) {
@@ -45,10 +58,8 @@ function LoginForm() {
       setMessageToggle(true);
     } else {
       event.target.reset();
-      setReset(true);
-      setTimeout(() => {
-        setReset(false);
-      }, 1000);
+      setUsername("");
+      setPassword("");
       setLoading(false);
       setTimeout(() => {
         router.replace(`/dashboard`);
@@ -70,29 +81,53 @@ function LoginForm() {
         >
           <div className={styles.form_elements}>
             <Label for="username" text="Username"></Label>
-            <Input
+            <input
               id="username"
               name="username"
+              className={styles.input}
               type="text"
-              required="true"
-              height="40px"
-              width="80%"
-              value={usernameHandler}
-              reset={reset}
+              required
+              onChange={usernameHandler}
+              value={username}
             />
+            <div className={styles.none}>
+              <Image
+                width="20px"
+                height="20px"
+                src="/eye-icon.png"
+                alt="eye-icon"
+              />
+            </div>
           </div>
           <div className={styles.form_elements}>
             <Label for="password" text="Password"></Label>
-            <Input
+
+            <input
               id="password"
+              className={styles.input}
               name="password"
-              type="password"
-              required="true"
-              height="40px"
-              width="80%"
-              value={passwordHandler}
-              reset={reset}
+              type={type}
+              required
+              onChange={passwordHandler}
+              value={password}
             />
+            <div className={styles.eye} onClick={eyeHandler}>
+              {eye ? (
+                <Image
+                  width="20px"
+                  height="20px"
+                  src="/eye-icon.png"
+                  alt="eye-icon"
+                />
+              ) : (
+                <Image
+                  width="20px"
+                  height="20px"
+                  src="/close-eye-icon.png"
+                  alt="close-eye-icon"
+                />
+              )}
+            </div>
           </div>
           <div className={styles.form_elements}>
             <FormButton type="submit" text="Login"></FormButton>

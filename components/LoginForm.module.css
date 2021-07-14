@@ -8,20 +8,25 @@
   box-shadow: 1px 1px 6px var(--black);
   margin: 30px auto;
 }
-
+.none {
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  margin-left: -30px;
+}
 .form {
   width: 100%;
 }
 
 .form_elements {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 70%;
   margin: 20px auto;
-  line-height: 40px;
 }
 .form_elements label {
   width: 30%;
-  margin-right: 50px;
 }
 
 .form_element_course div {
@@ -29,13 +34,36 @@
   align-items: center;
 }
 
-.message_div{
+.message_div {
   width: 70%;
-  margin:auto;
+  margin: auto;
   text-align: center;
   color: red;
   font-size: 20px;
   font-family: "Poppins";
+}
+.input {
+  width: 70%;
+  height: 40px;
+  background-color: var(--pureWhite);
+  border: none;
+  outline: none;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+.input:focus {
+  border: 2px solid black;
+}
+
+.eye {
+  display: flex;
+  align-items: center;
+  margin-left: -30px;
+}
+.eye:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (max-width: 1400px) {
@@ -65,6 +93,22 @@
   .form_elements input {
     width: 100% !important;
   }
+  .eye {
+    margin-left: 0%;
+    position: absolute;
+    left: 77%;
+    top: 68%;
+  }
+}
+@media only screen and (max-width: 530px) {
+  .eye {
+    left: 79%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .eye {
+    left: 81%;
+  }
 }
 @media only screen and (max-width: 450px) {
   .login_form {
@@ -77,5 +121,48 @@
   .form_elements input {
     width: 100% !important;
   }
+  .eye {
+    left: 72%;
+    top: 67%;
+  }
 }
-
+@media only screen and (max-width: 425px) {
+  .eye {
+    left: 73%;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .eye {
+    left: 74%;
+  }
+}
+@media only screen and (max-width: 410px) {
+  .eye {
+    left: 75%;
+  }
+}
+@media only screen and (max-width: 395px) {
+  .eye {
+    left: 76%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .eye {
+    left: 77%;
+  }
+}
+@media only screen and (max-width: 355px) {
+  .eye {
+    left: 79%;
+  }
+}
+@media only screen and (max-width: 325px) {
+  .eye {
+    left: 81%;
+  }
+}
+@media only screen and (max-width: 315px) {
+  .eye {
+    left: 82%;
+  }
+}
