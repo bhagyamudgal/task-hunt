@@ -4,7 +4,7 @@ import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
 import DashboardProfile from "../../components/DashboardProfile";
 
-function index() {
+function DashboardHomePage() {
   return (
     <>
       <LayoutDashboard>
@@ -33,4 +33,4 @@ export const getServerSideProps = async (ctx) => {
     props: { session },
   };
 };
-export default index;
+export default DashboardHomePage;

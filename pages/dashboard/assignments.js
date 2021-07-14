@@ -6,7 +6,7 @@ import DashboardDisplay from "../../components/DashboardDisplay";
 import AssignmentsBody from "../../dashboard_display_components/AssignmentsBody";
 import store from "../../store/index";
 
-function assignments() {
+function DashboardAssignmentsPage() {
   return (
     <Provider store={store}>
       <LayoutDashboard>
@@ -36,4 +36,4 @@ export const getServerSideProps = async (ctx) => {
     props: { session },
   };
 };
-export default assignments;
+export default DashboardAssignmentsPage;
