@@ -15,11 +15,11 @@
   margin-right: 10px;
   height: 80%;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .assignment_div::-webkit-scrollbar {
   width: 15px;
-
 }
 
 .assignment_div::-webkit-scrollbar-track {
@@ -31,9 +31,7 @@
 .assignment_div::-webkit-scrollbar-thumb {
   background-color: var(--orange);
   border-radius: 10px;
-
 }
 .assignment_div::-webkit-scrollbar-thumb:hover {
   background-color: rgb(245, 117, 78);
-
 }

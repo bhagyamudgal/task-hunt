@@ -37,6 +37,7 @@ function AssignmentCard() {
             src="/dashboard-display-button.svg"
             alt="dashboard-display-button"
           />
+          <span className={styles.tooltip_text}>Details</span>
         </button>
       </span>
     </div>
