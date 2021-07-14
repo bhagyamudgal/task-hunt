@@ -1,0 +1,23 @@
+.display_button {
+  display: flex;
+  width: 20%;
+  height: 25%;
+  background: var(--white);
+  border-radius: 20px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  margin: 20px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.display_button:hover {
+  background-color: var(--orange);
+  color: white;
+  border: 4px solid white;
+}
