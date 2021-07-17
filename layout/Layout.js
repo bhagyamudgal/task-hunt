@@ -25,6 +25,10 @@ function Layout(props) {
           .block {
             display: block;
           }
+          .main {
+            position: relative;
+            overflow-x: hidden;
+          }
         `}</style>
         {(router.pathname === "/" ||
           router.pathname === "/features" ||

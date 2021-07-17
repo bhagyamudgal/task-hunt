@@ -6,6 +6,7 @@ export default NextAuth({
   session: {
     jwt: true,
   },
+
   providers: [
     Providers.Credentials({
       async authorize(credentials) {
@@ -46,9 +47,30 @@ export default NextAuth({
           client.close();
           throw new Error("Invalid Password.");
         }
-        client.close();
-        return { username: user.username, organization: user.organization };
+        return {
+          name: user.name,
+          email: user.email,
+          username: user.username,
+          organization: user.organization,
+          usertype: user.usertype,
+        };
       },
     }),
   ],
+  callbacks: {
+    jwt: async (token, user, account, profile, isNewUser) => {
+      //  "user" parameter is the object received from "authorize"
+      //  "token" is being send below to "session" callback...
+      //  ...so we set "user" param of "token" to object from "authorize"...
+      //  ...and return it...
+      user && (token.user = user);
+      return Promise.resolve(token); // ...here
+    },
+    session: async (session, token) => {
+      //  "session" is current session object
+      //  below we set "user" param of "session" to value received from "jwt" callback
+      session.user = token.user;
+      return Promise.resolve(session);
+    },
+  },
 });

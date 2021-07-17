@@ -1,18 +1,20 @@
 import React from "react";
 import { getSession } from "next-auth/client";
+import { Provider } from "react-redux";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
 import SettingsBody from "../../dashboard_display_components/SettingsBody";
+import store from "../../store/index";
 
 function SettingsPage(props) {
   return (
-    <>
+    <Provider store={store}>
       <LayoutDashboard>
         <DashboardDisplay>
-          <SettingsBody/>
+          <SettingsBody />
         </DashboardDisplay>
       </LayoutDashboard>
-    </>
+    </Provider>
   );
 }
 // You should use getServerSideProps when:
