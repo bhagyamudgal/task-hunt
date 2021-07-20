@@ -28,6 +28,14 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
+  if (session.user.newuser === true) {
+    return {
+      redirect: {
+        destination: "/dashboard/new-user",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: { session },

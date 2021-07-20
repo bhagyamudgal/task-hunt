@@ -1,20 +1,30 @@
 import React from "react";
 import { getSession } from "next-auth/client";
-import { Provider } from "react-redux";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
-import AssignmentsBody from "../../dashboard_display_components/AssignmentsBody";
-import store from "../../store/index";
+import NewPassword from "../../dashboard_display_components/NewPassword";
 
-function DashboardAssignmentsPage() {
+function DashboardHomePage() {
   return (
-    <Provider store={store}>
-      <LayoutDashboard>
-        <DashboardDisplay>
-          <AssignmentsBody />
-        </DashboardDisplay>
-      </LayoutDashboard>
-    </Provider>
+    <>
+      <div>
+        <LayoutDashboard>
+          <div className="center">
+            <DashboardDisplay>
+              <NewPassword />
+            </DashboardDisplay>
+          </div>
+        </LayoutDashboard>
+      </div>
+      <style jsx>{`
+        .center {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100vw;
+        }
+      `}</style>
+    </>
   );
 }
 
@@ -31,10 +41,11 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
-  if (session.user.newuser === true) {
+
+  if (session.user.newuser === false) {
     return {
       redirect: {
-        destination: "/dashboard/new-user",
+        destination: "/dashboard",
         permanent: false,
       },
     };
@@ -44,4 +55,4 @@ export const getServerSideProps = async (ctx) => {
     props: { session },
   };
 };
-export default DashboardAssignmentsPage;
+export default DashboardHomePage;
