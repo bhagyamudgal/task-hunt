@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./LayoutDashboard.module.css";
 import DashboardNavigation from "../components/DashboardNavigation";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 function LayoutDashboard(props) {
+  const router = useRouter();
   return (
     <>
       <div className={styles.body}>
@@ -13,7 +15,7 @@ function LayoutDashboard(props) {
           </div>
         </div>
         <main className={styles.main}>
-          <DashboardNavigation />
+          {router.pathname !== "/dashboard/new-user" && <DashboardNavigation />}
           {props.children}
         </main>
         <div className={styles.waves_div}>

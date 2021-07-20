@@ -27,7 +27,7 @@ function Layout(props) {
           }
           .main {
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
           }
         `}</style>
         {(router.pathname === "/" ||
