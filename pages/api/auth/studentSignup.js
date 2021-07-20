@@ -61,8 +61,8 @@ async function handler(req, res) {
     organization: organization,
     username: username,
     password: hashPassword,
-    lastlogin: lastlogin,
-    type: "student",
+    usertype: "student",
+    newuser: true,
   });
 
   res.status(201).json({ message: "Student created successfully" });

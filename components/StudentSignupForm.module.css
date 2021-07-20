@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 881px;
-  height: 495px;
+  height: 515px;
   background: var(--orange);
   box-shadow: 1px 1px 6px var(--black);
   margin: 30px auto;
@@ -134,7 +134,7 @@
   }
   .studentSignup_form {
     width: 590px;
-    height: 580px;
+    height: 600px;
   }
   .form_elements {
     width: 90%;
@@ -164,7 +164,7 @@
 @media only screen and (max-width: 655px) {
   .studentSignup_form {
     width: 440px;
-    height: 630px;
+    height: 660px;
   }
   .radio_group {
     justify-content: space-between;
@@ -193,7 +193,7 @@
 @media only screen and (max-width: 490px) {
   .studentSignup_form {
     width: 340px;
-    height: 850px;
+    height: 860px;
   }
   .form_elements {
     flex-direction: column;
@@ -221,6 +221,6 @@
 @media only screen and (max-width: 375px) {
   .studentSignup_form {
     width: 270px;
-    height: 880px;
+    height: 930px;
   }
 }
