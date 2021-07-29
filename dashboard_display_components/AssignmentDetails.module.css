@@ -66,12 +66,22 @@
 .add_files_div button:hover {
   background-color: var(--orange);
   color: white;
+  border: 2px solid white;
 }
 .section4 {
   margin: 10px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.attached_files_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.attached_files_div img {
+  margin-right: 5px;
 }
 
 .submit_div button {
@@ -86,6 +96,7 @@
 }
 .submit_div button:hover {
   background-color: var(--orange);
+  border: 2px solid white;
   color: white;
 }
 .back_div button {
@@ -100,5 +111,6 @@
 }
 .back_div button:hover {
   background-color: var(--orange);
+  border: 2px solid white;
   color: white;
 }

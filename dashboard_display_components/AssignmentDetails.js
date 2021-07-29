@@ -1,29 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AssignmentDetails.module.css";
 import Image from "next/image";
 import { assignmentDetailsActions } from "../store/index";
 import { useDispatch } from "react-redux";
 
-function AssignmentDetails() {
+function AssignmentDetails(props) {
   const dispatch = useDispatch();
+
   function detailsHandler() {
     dispatch(assignmentDetailsActions.setDisplayDetails(false));
   }
+  let subject;
+  let title;
+  let duedate;
+  let description;
+  let fileURL;
+  let fileName;
+  props.assignments.forEach((assignment) => {
+    if (assignment._id === props.id) {
+      subject = assignment.subject;
+      title = assignment.title;
+      duedate = assignment.duedate;
+      description = assignment.description;
+      fileURL = assignment.fileURL;
+      fileName = assignment.orignalFilename;
+    }
+  });
+
+  // console.log("HH" + assignment);
+  // console.log("HH" + JSON.parse(assignment.slice(0, -1)));
+
   return (
     <>
       <div className={styles.assignment_body_div}>
         <div className={styles.section1}>
           <span className={styles.heading}>
-            <h3>Maths Assignment</h3>
+            <h3>{subject} Assignment</h3>
           </span>
-          <span className={styles.date}>19-2-2019</span>
+          <span className={styles.date}>{duedate}</span>
         </div>
         <div className={styles.section2}>
-          <div className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-            consequuntur nostrum fuga eum eos maiores ipsam incidunt magnam
-            culpa! Nulla distinctio cumque laudantium magni recusandae!
-          </div>
+          <div className={styles.description}>{description}</div>
         </div>
         <div className={styles.section3}>
           <span className={styles.add_files_div}>
@@ -36,6 +53,9 @@ function AssignmentDetails() {
               src="/attachment-icon.png"
               alt="attachment-icon"
             />
+            <a href={fileURL} target="_blank" rel="noreferrer">
+              {fileName}
+            </a>
           </span>
         </div>
         <div className={styles.section4}>

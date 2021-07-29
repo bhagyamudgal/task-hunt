@@ -1,4 +1,5 @@
 import React from "react";
+import { connectToDatabase } from "../../lib/db";
 import { getSession } from "next-auth/client";
 import { Provider } from "react-redux";
 import LayoutDashboard from "../../layout/LayoutDashboard";
@@ -6,12 +7,12 @@ import DashboardDisplay from "../../components/DashboardDisplay";
 import AssignmentsBody from "../../dashboard_display_components/AssignmentsBody";
 import store from "../../store/index";
 
-function DashboardAssignmentsPage() {
+function DashboardAssignmentsPage(props) {
   return (
     <Provider store={store}>
-      <LayoutDashboard>
+      <LayoutDashboard usertype={props.session.user.usertype}>
         <DashboardDisplay>
-          <AssignmentsBody />
+          <AssignmentsBody assignments={JSON.parse(props.assignments)} />
         </DashboardDisplay>
       </LayoutDashboard>
     </Provider>
@@ -39,9 +40,31 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
+  const client = await connectToDatabase();
+  const db = client.db("assignments");
+  let assignments;
+  if (session.user.usertype === "student") {
+    assignments = await db
+      .collection("teacher")
+      .find({
+        course: session.user.course,
+        year: session.user.year,
+        semester: session.user.semester,
+      })
+      .toArray();
+  } else {
+    assignments = await db
+      .collection("teacher")
+      .find({
+        subject: session.user.subject,
+      })
+      .toArray();
+  }
 
+  console.log(assignments);
+  let obj = JSON.stringify(assignments);
   return {
-    props: { session },
+    props: { session, assignments: obj},
   };
 };
 export default DashboardAssignmentsPage;

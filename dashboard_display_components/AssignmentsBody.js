@@ -5,10 +5,11 @@ import { assignmentDetailsActions } from "../store/index";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
-function AssignmentsBody() {
+function AssignmentsBody(props) {
   const displayDetails = useSelector(
     (state) => state.assignmentDetails.displayDetails
   );
+  const assignmentId = useSelector((state) => state.assignmentDetails.id);
   const router = useRouter();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,7 +18,16 @@ function AssignmentsBody() {
     });
   });
 
-  return <>{displayDetails ? <AssignmentDetails /> : <StudentAssignments />}</>;
+  return (
+    <>
+      {console.log(props.assignments)}
+      {displayDetails ? (
+        <AssignmentDetails id={assignmentId} assignments={props.assignments} />
+      ) : (
+        <StudentAssignments assignments={props.assignments} />
+      )}
+    </>
+  );
 }
 
 export default AssignmentsBody;
