@@ -12,8 +12,6 @@ function StudentSignupForm() {
   const [email, setEmail] = useState("");
   const [studentID, setStudentID] = useState("");
   const [gender, setGender] = useState("");
-  const [errorMessage, seterrorMessage] = useState("");
-  const [errorToggle, seterrorToggle] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const [reset, setReset] = useState(false);
@@ -45,69 +43,48 @@ function StudentSignupForm() {
     let year;
     let semester;
     let organization;
-    if (courseRef.current.value === "SELECT") {
-      seterrorMessage("Please Select Course");
-      seterrorToggle(true);
+
+    course = courseRef.current.value;
+    year = yearRef.current.value;
+    semester = semesterRef.current.value;
+    organization = organizationRef.current.value;
+
+    setLoading(true);
+    const response = await fetch("/api/auth/studentSignup", {
+      method: "POST",
+      body: JSON.stringify({
+        studentID,
+        name,
+        email,
+        gender,
+        course,
+        year,
+        semester,
+        organization,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setLoading(false);
+      setErrorResponseMessage(data.message);
+      setErrorResponse(true);
+      setSuccessToggle(true);
     } else {
-      seterrorToggle(false);
-      course = courseRef.current.value;
-      if (yearRef.current.value === "SELECT") {
-        seterrorMessage("Please Select Year");
-        seterrorToggle(true);
-      } else {
-        seterrorToggle(false);
-        year = yearRef.current.value;
-        if (semesterRef.current.value === "SELECT") {
-          seterrorMessage("Please Select Semester");
-          seterrorToggle(true);
-        } else {
-          seterrorToggle(false);
-          semester = semesterRef.current.value;
-          if (organizationRef.current.value === "SELECT") {
-            seterrorMessage("Please Select Organization");
-            seterrorToggle(true);
-          } else {
-            seterrorToggle(false);
-            organization = organizationRef.current.value;
-            setLoading(true);
-            const response = await fetch("/api/auth/studentSignup", {
-              method: "POST",
-              body: JSON.stringify({
-                studentID,
-                name,
-                email,
-                gender,
-                course,
-                year,
-                semester,
-                organization,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-              setLoading(false);
-              setErrorResponseMessage(data.message);
-              setErrorResponse(true);
-              setSuccessToggle(true);
-            } else {
-              event.target.reset();
-              setLoading(false);
-              setSuccessToggle(true);
-              setReset(true);
-              setTimeout(() => {
-                setReset(false);
-              }, 1000);
-            }
-          }
-        }
-      }
+      event.target.reset();
+      setLoading(false);
+      setSuccessToggle(true);
+      setReset(true);
+      setTimeout(() => {
+        setReset(false);
+      }, 1000);
     }
   }
+
   return (
     <div className={styles.studentSignup_form}>
       {successToggle ? (
@@ -142,11 +119,6 @@ function StudentSignupForm() {
           className={styles.form}
           autoComplete="off"
         >
-          {errorToggle && (
-            <div className={styles.error_div}>
-              <h4>*{errorMessage}</h4>
-            </div>
-          )}
           <div className={styles.form_elements}>
             <Label for="studentid" text="Student ID"></Label>
             <Input
@@ -231,8 +203,16 @@ function StudentSignupForm() {
           >
             <div>
               <Label for="course" text="Course"></Label>
-              <select name="course" id="course" ref={courseRef} required>
-                <option value="SELECT">SELECT</option>
+              <select
+                name="course"
+                id="course"
+                ref={courseRef}
+                defaultValue=""
+                required
+              >
+                <option value="" disabled>
+                  Select
+                </option>
                 <option value="BCA">BCA</option>
                 <option value="BBA">BBA</option>
                 <option value="BCOM">BCOM</option>
@@ -241,8 +221,16 @@ function StudentSignupForm() {
             </div>
             <div>
               <Label for="year" text="Year"></Label>
-              <select name="year" id="year" ref={yearRef} required>
-                <option value="SELECT">SELECT</option>
+              <select
+                name="year"
+                id="year"
+                ref={yearRef}
+                defaultValue=""
+                required
+              >
+                <option value="" disabled>
+                  Select
+                </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -250,8 +238,16 @@ function StudentSignupForm() {
             </div>
             <div>
               <Label for="semester" text="Semester"></Label>
-              <select name="semester" id="semester" ref={semesterRef} required>
-                <option value="SELECT">SELECT</option>
+              <select
+                name="semester"
+                id="semester"
+                ref={semesterRef}
+                defaultValue=""
+                required
+              >
+                <option value="" disabled>
+                  Select
+                </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -270,9 +266,12 @@ function StudentSignupForm() {
               id="organization"
               className={styles.organization}
               ref={organizationRef}
+              defaultValue=""
               required
             >
-              <option value="SELECT">SELECT</option>
+              <option value="" disabled>
+                Select
+              </option>
               <option value="Maharaja Surajmal Institute">
                 Maharaja Surajmal Institute
               </option>

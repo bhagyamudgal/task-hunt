@@ -79,12 +79,6 @@
   border: 2px solid black;
 }
 
-.error_div {
-  text-align: center;
-  color: red;
-  font-size: 20px;
-  font-family: "Poppins";
-}
 .errorResponse_div {
   width: 70%;
   margin: auto;
