@@ -3,15 +3,38 @@ import { getSession } from "next-auth/client";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
 import DashboardProfile from "../../components/DashboardProfile";
+import DashboardBody from "../../dashboard_display_components/DashboardBody";
+import { Provider } from "react-redux";
+import store from "../../store/index";
 
-function DashboardHomePage() {
+function DashboardHomePage(props) {
   return (
-    <>
-      <LayoutDashboard>
-        <DashboardDisplay />
-        <DashboardProfile />
+    <Provider store={store}>
+      <LayoutDashboard usertype={props.session.user.usertype}>
+        <DashboardDisplay>
+          <DashboardBody usertype={props.session.user.usertype} />
+        </DashboardDisplay>
+        {props.session.user.usertype === "student" && (
+          <DashboardProfile
+            name={props.session.user.name}
+            course={props.session.user.course}
+            year={props.session.user.year}
+            semester={props.session.user.semester}
+            organization={props.session.user.organization}
+            usertype={props.session.user.usertype}
+          />
+        )}
+        {props.session.user.usertype === "teacher" && (
+          <DashboardProfile
+            name={props.session.user.name}
+            post={props.session.user.post}
+            subject={props.session.user.subject}
+            organization={props.session.user.organization}
+            usertype={props.session.user.usertype}
+          />
+        )}
       </LayoutDashboard>
-    </>
+    </Provider>
   );
 }
 

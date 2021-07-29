@@ -46,24 +46,56 @@ export default NextAuth({
           client.close();
           throw new Error("Invalid Password.");
         }
-        if (user.newuser === false) {
-          return {
-            name: user.name,
-            email: user.email,
-            username: user.username,
-            organization: user.organization,
-            usertype: user.usertype,
-            newuser: false,
-          };
+        if (user === student) {
+          if (user.newuser === false) {
+            return {
+              name: user.name,
+              email: user.email,
+              username: user.username,
+              course: user.course,
+              year: user.year,
+              semester: user.semester,
+              organization: user.organization,
+              usertype: user.usertype,
+              newuser: false,
+            };
+          } else {
+            return {
+              name: user.name,
+              email: user.email,
+              username: user.username,
+              course: user.course,
+              year: user.year,
+              semester: user.semester,
+              organization: user.organization,
+              usertype: user.usertype,
+              newuser: true,
+            };
+          }
         } else {
-          return {
-            name: user.name,
-            email: user.email,
-            username: user.username,
-            organization: user.organization,
-            usertype: user.usertype,
-            newuser: true,
-          };
+          if (user.newuser === false) {
+            return {
+              name: user.name,
+              email: user.email,
+              username: user.username,
+              organization: user.organization,
+              post: user.post,
+              subject: user.subject,
+              usertype: user.usertype,
+              newuser: false,
+            };
+          } else {
+            return {
+              name: user.name,
+              email: user.email,
+              username: user.username,
+              organization: user.organization,
+              post: user.post,
+              subject: user.subject,
+              usertype: user.usertype,
+              newuser: true,
+            };
+          }
         }
       },
     }),

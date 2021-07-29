@@ -2,28 +2,16 @@ import React from "react";
 import { getSession } from "next-auth/client";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
-import NewPassword from "../../dashboard_display_components/NewPassword";
+import DashboardProfile from "../../components/DashboardProfile";
+import DashboardBody from "../../dashboard_display_components/DashboardBody";
 
-function DashboardHomePage() {
+function DashboardReportsPage(props) {
   return (
     <>
-      <div>
-        <LayoutDashboard usertype={props.session.user.usertype}>
-          <div className="center">
-            <DashboardDisplay>
-              <NewPassword />
-            </DashboardDisplay>
-          </div>
-        </LayoutDashboard>
-      </div>
-      <style jsx>{`
-        .center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100vw;
-        }
-      `}</style>
+      <LayoutDashboard usertype={props.session.user.usertype}>
+        <DashboardDisplay>
+        </DashboardDisplay>
+      </LayoutDashboard>
     </>
   );
 }
@@ -41,8 +29,15 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
-
-  if (session.user.newuser === false) {
+  if (session.user.newuser === true) {
+    return {
+      redirect: {
+        destination: "/dashboard/new-user",
+        permanent: false,
+      },
+    };
+  }
+  if (session.user.usertype !== "teacher") {
     return {
       redirect: {
         destination: "/dashboard",
@@ -55,4 +50,4 @@ export const getServerSideProps = async (ctx) => {
     props: { session },
   };
 };
-export default DashboardHomePage;
+export default DashboardReportsPage;

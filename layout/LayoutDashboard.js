@@ -15,7 +15,9 @@ function LayoutDashboard(props) {
           </div>
         </div>
         <main className={styles.main}>
-          {router.pathname !== "/dashboard/new-user" && <DashboardNavigation />}
+          {router.pathname !== "/dashboard/new-user" && (
+            <DashboardNavigation usertype={props.usertype} />
+          )}
           {props.children}
         </main>
         <div className={styles.waves_div}>

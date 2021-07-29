@@ -4,7 +4,7 @@ import styles from "./DashboardNavigation.module.css";
 import { signOut } from "next-auth/client";
 import { useRouter } from "next/router";
 import Link from "next/link";
-function DashboardNavigation() {
+function DashboardNavigation(props) {
   const router = useRouter();
   function logoutHandler() {
     signOut();
@@ -49,6 +49,26 @@ function DashboardNavigation() {
               <span className={styles.tooltip_text}>Assignments</span>
             </span>
           </Link>
+          {props.usertype === "teacher" && (
+            <Link href="/dashboard/reports" passHref>
+              <span
+                tabIndex="0"
+                className={
+                  router.pathname === "/dashboard/reports"
+                    ? styles.item_span_focus
+                    : styles.item_span
+                }
+              >
+                <Image
+                  width="40px"
+                  height="40px"
+                  src="/dashboard-reports.svg"
+                  alt="dashboard-navigation-reports-button"
+                />
+                <span className={styles.tooltip_text}>Reports</span>
+              </span>
+            </Link>
+          )}
           <Link href="/dashboard/settings" passHref>
             <span
               tabIndex="0"
@@ -68,6 +88,7 @@ function DashboardNavigation() {
             </span>
           </Link>
         </div>
+
         <span
           tabIndex="0"
           className={styles.item_span_end}

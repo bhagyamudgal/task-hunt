@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import styles from "../styles/home.module.css";
 import Head from "next/head";
 
+
 function HomePage(props) {
   return (
     <>

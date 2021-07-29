@@ -6,6 +6,9 @@ import Loading from "../components/Loading";
 import { Provider } from "next-auth/client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import firebase from "../lib/initFirebase";
+
+firebase();
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

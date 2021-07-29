@@ -9,7 +9,7 @@ import store from "../../store/index";
 function SettingsPage(props) {
   return (
     <Provider store={store}>
-      <LayoutDashboard>
+      <LayoutDashboard usertype={props.session.user.usertype}>
         <DashboardDisplay>
           <SettingsBody />
         </DashboardDisplay>
