@@ -57,6 +57,7 @@ export const getServerSideProps = async (ctx) => {
       .collection("teacher")
       .find({
         subject: session.user.subject,
+        username: session.user.username,
       })
       .toArray();
   }
