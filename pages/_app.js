@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
   function loadingHandler() {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 2000);
   }
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
     // const handleComplete = (url) => {
     //   setTimeout(() => {
     //     setLoading(false);
-    //   }, 1000);
+    //   }, 2000);
     // };
 
     router.events.on("routeChangeStart", handleStart);
