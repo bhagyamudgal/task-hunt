@@ -45,7 +45,10 @@ function DashboardBody(props) {
               onClick={createAssignmentHandler}
             />
           )}
-          <DisplayButton text="Completed Assignments" />
+          {props.usertype === "student" && (
+            <DisplayButton text="Completed Assignments" />
+          )}
+
           {props.usertype === "teacher" && (
             <DisplayButton text="View Reports" onClick={showReportsHandler} />
           )}

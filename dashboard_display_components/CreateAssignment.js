@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CreateAssignment.module.css";
+import { getSession } from "next-auth/client";
 import LoadingForm from "../components/LoadingForm";
 import { useState, useRef } from "react";
 import { createAssignmentActions } from "../store/index";
@@ -18,7 +19,7 @@ function CreateAssignment() {
   const titleRef = useRef();
   const duedateRef = useRef();
   const descriptionRef = useRef();
-  const fileRef = useRef(null);
+  const fileRef = useRef();
   const courseRef = useRef();
   const yearRef = useRef();
   const semesterRef = useRef();
@@ -41,12 +42,17 @@ function CreateAssignment() {
     var task = await storageRef.put(file);
 
     const downloadURL = await task.ref.getDownloadURL();
+
     return downloadURL;
   }
 
   async function createAssignmentFormHandler(event) {
     event.preventDefault();
-
+    let username;
+    const session = await getSession();
+    if (session) {
+      username = session.user.username;
+    }
     let course = courseRef.current.value;
     let year = yearRef.current.value;
     let semester = semesterRef.current.value;
@@ -55,37 +61,40 @@ function CreateAssignment() {
     let duedate = duedateRef.current.value;
     let description = descriptionRef.current.value;
 
-    setLoading(true);
     let fileURL = await uploadFile();
-    const response = await fetch("/api/auth/createAssignment", {
-      method: "POST",
-      body: JSON.stringify({
-        title,
-        duedate,
-        description,
-        subject,
-        course,
-        year,
-        semester,
-        fileURL,
-        orignalFilename,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    setLoading(true);
+    if (fileURL !== undefined || fileURL !== null) {
+      const response = await fetch("/api/auth/createAssignment", {
+        method: "POST",
+        body: JSON.stringify({
+          title,
+          duedate,
+          description,
+          subject,
+          course,
+          year,
+          semester,
+          fileURL,
+          orignalFilename,
+          username,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok) {
-      setLoading(false);
-      setSuccessMessage(data.message);
-      setSuccessToggle(true);
-    } else {
-      event.target.reset();
-      setLoading(false);
-      setSuccessMessage(data.message);
-      setSuccessToggle(true);
+      if (!response.ok) {
+        setLoading(false);
+        setSuccessMessage(data.message);
+        setSuccessToggle(true);
+      } else {
+        event.target.reset();
+        setLoading(false);
+        setSuccessMessage(data.message);
+        setSuccessToggle(true);
+      }
     }
   }
 

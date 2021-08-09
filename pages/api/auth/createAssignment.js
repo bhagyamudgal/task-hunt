@@ -16,6 +16,7 @@ async function handler(req, res) {
     subject,
     fileURL,
     orignalFilename,
+    username,
   } = data;
 
   const client = await connectToDatabase();
@@ -32,6 +33,7 @@ async function handler(req, res) {
     semester: semester,
     fileURL: fileURL,
     orignalFilename: orignalFilename,
+    username: username,
   });
 
   res.status(201).json({ message: "Assignment Created Successfully" });
