@@ -10,6 +10,18 @@
   color: var(--pureWhite);
   margin: 10px 0px;
 }
+.empty {
+  width: 90%;
+  margin: 10px auto;
+}
+.empty h3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: var(--pureWhite);
+  margin: 10px 0px;
+}
 
 .assignment_div {
   margin-right: 10px;

@@ -16,6 +16,18 @@ function StudentAssignments(props) {
       </div>
       <div className={styles.assignment_div}>
         {router.pathname === "/dashboard/reports"
+          ? props.studentAssignments === undefined && (
+              <div className={styles.empty}>
+                <h3>No Assignments to Show.</h3>
+              </div>
+            )
+          : props.assignment === undefined && (
+              <div className={styles.empty}>
+                <h3>No Assignments to Show.</h3>
+              </div>
+            )}
+
+        {router.pathname === "/dashboard/reports"
           ? props.studentAssignments.map((studentAssignment) => {
               return (
                 <AssignmentCard
