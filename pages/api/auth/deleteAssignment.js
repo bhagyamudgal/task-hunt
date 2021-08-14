@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../lib/db";
+import { connectToDatabase } from "../../../lib/db";
 import { ObjectId } from "mongodb";
 import { getSession } from "next-auth/client";
 

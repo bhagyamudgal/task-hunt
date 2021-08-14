@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../../lib/db";
+import { connectToDatabase } from "../../lib/db";
 import { hash } from "bcryptjs";
 const validator = require("validator");
 const generator = require("generate-password");

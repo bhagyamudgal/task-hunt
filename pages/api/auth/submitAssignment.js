@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../lib/db";
+import { connectToDatabase } from "../../../lib/db";
 import { getSession } from "next-auth/client";
 async function handler(req, res) {
   if (req.method !== "POST") {

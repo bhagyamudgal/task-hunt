@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../../lib/db";
+import { connectToDatabase } from "../../lib/db";
 import { hash } from "bcryptjs";
 const validator = require("validator");
 const generator = require("generate-password");
@@ -40,7 +40,7 @@ async function handler(req, res) {
     return;
   }
 
-  const username = name.split(" ").join("").toLowerCase() + studentID;
+  const username = email;
   const password = generator.generate({
     length: 10,
     numbers: true,
@@ -48,7 +48,6 @@ async function handler(req, res) {
   console.log(username);
   console.log(password);
   const hashPassword = await hash(password, 12);
-  const lastlogin = null;
 
   const result = await db.collection("students").insertOne({
     studentID: studentID,
