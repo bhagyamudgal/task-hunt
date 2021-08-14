@@ -50,7 +50,7 @@ function StudentSignupForm() {
     organization = organizationRef.current.value;
 
     setLoading(true);
-    const response = await fetch("/api/auth/studentSignup", {
+    const response = await fetch("/api/studentSignup", {
       method: "POST",
       body: JSON.stringify({
         studentID,
@@ -277,12 +277,6 @@ function StudentSignupForm() {
               </option>
               <option value="Vivekanand Institute Of Professional Studies">
                 Vivekanand Institute Of Professional Studies
-              </option>
-              <option value="Trinity Institute Of Professional Studies">
-                Trinity Institute Of Professional Studies
-              </option>
-              <option value="Institute Of Information Technology And Management">
-                Institute Of Information Technology And Management
               </option>
             </select>
           </div>

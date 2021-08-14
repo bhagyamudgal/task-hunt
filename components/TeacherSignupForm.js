@@ -12,8 +12,6 @@ function TeacherSignupForm() {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [reset, setReset] = useState(false);
-  const [errorMessage, seterrorMessage] = useState("");
-  const [errorToggle, seterrorToggle] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successToggle, setSuccessToggle] = useState(false);
   const [errorResponse, setErrorResponse] = useState(false);
@@ -34,63 +32,43 @@ function TeacherSignupForm() {
 
   async function teacherSignupFormHandler(event) {
     event.preventDefault();
-    let subject;
-    let post;
-    let organization;
-    if (subjectRef.current.value === "SELECT") {
-      seterrorMessage("Please Select Subject");
-      seterrorToggle(true);
+    let subject = subjectRef.current.value;
+    let post = postRef.current.value;
+    let organization = organizationRef.current.value;
+    setLoading(true);
+    const response = await fetch("/api/teacherSignup", {
+      method: "POST",
+      body: JSON.stringify({
+        name,
+        email,
+        gender,
+        subject,
+        post,
+        organization,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setLoading(false);
+      setErrorResponseMessage(data.message);
+      setErrorResponse(true);
+      setSuccessToggle(true);
     } else {
-      seterrorToggle(false);
-      subject = subjectRef.current.value;
-      if (postRef.current.value === "SELECT") {
-        seterrorMessage("Please Select Post");
-        seterrorToggle(true);
-      } else {
-        seterrorToggle(false);
-        post = postRef.current.value;
-        if (organizationRef.current.value === "SELECT") {
-          seterrorMessage("Please Select Organization");
-          seterrorToggle(true);
-        } else {
-          seterrorToggle(false);
-          organization = organizationRef.current.value;
-          setLoading(true);
-          const response = await fetch("/api/auth/teacherSignup", {
-            method: "POST",
-            body: JSON.stringify({
-              name,
-              email,
-              gender,
-              subject,
-              post,
-              organization,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-
-          const data = await response.json();
-
-          if (!response.ok) {
-            setLoading(false);
-            setErrorResponseMessage(data.message);
-            setErrorResponse(true);
-            setSuccessToggle(true);
-          } else {
-            event.target.reset();
-            setLoading(false);
-            setSuccessToggle(true);
-            setReset(true);
-            setTimeout(() => {
-              setReset(false);
-            }, 1000);
-          }
-        }
-      }
+      event.target.reset();
+      setLoading(false);
+      setSuccessToggle(true);
+      setReset(true);
+      setTimeout(() => {
+        setReset(false);
+      }, 1000);
     }
   }
+
   return (
     <div className={styles.teacherSignup_form}>
       {successToggle ? (
@@ -125,11 +103,6 @@ function TeacherSignupForm() {
           className={styles.form}
           autoComplete="off"
         >
-          {errorToggle && (
-            <div className={styles.error_div}>
-              <h4>*{errorMessage}</h4>
-            </div>
-          )}
           <div
             className={`${styles.form_elements} ${styles.form_element_width}`}
           >
@@ -210,13 +183,22 @@ function TeacherSignupForm() {
               id="subject"
               className={styles.select}
               ref={subjectRef}
+              defaultValue=""
               required
             >
-              <option value="SELECT">SELECT</option>
-              <option value="Maths">Maths</option>
+              <option value="" disabled>
+                Select
+              </option>
+              <option value="Mathematics">Mathematics</option>
               <option value="Computer Networks">Computer Networks</option>
-              <option value="DSA">DSA</option>
-              <option value="FIT">FIT</option>
+              <option value="Data Structures and Algorithms">
+                Data Structures and Algorithms
+              </option>
+              <option value="Foundation of Information Technology">
+                Foundation of Information Technology
+              </option>
+              <option value="OOPS with C++">OOPS with C++</option>
+              <option value="Java">Java</option>
             </select>
           </div>
           <div className={styles.form_elements}>
@@ -227,9 +209,10 @@ function TeacherSignupForm() {
               className={styles.select}
               ref={postRef}
               required
+              defaultValue=""
             >
-              <option value="SELECT">
-                SELECT
+              <option value="" disabled>
+                Select
               </option>
               <option value="Head Of Department">Head Of Department</option>
               <option value="Associate Professor">Associate Professor</option>
@@ -245,20 +228,17 @@ function TeacherSignupForm() {
               id="organization"
               className={styles.organization}
               ref={organizationRef}
+              defaultValue=""
               required
             >
-              <option value="SELECT">SELECT</option>
+              <option value="" disabled>
+                Select
+              </option>
               <option value="Maharaja Surajmal Institute">
                 Maharaja Surajmal Institute
               </option>
               <option value="Vivekanand Institute Of Professional Studies">
                 Vivekanand Institute Of Professional Studies
-              </option>
-              <option value="Trinity Institute Of Professional Studies">
-                Trinity Institute Of Professional Studies
-              </option>
-              <option value="Institute Of Information Technology And Management">
-                Institute Of Information Technology And Management
               </option>
             </select>
           </div>
