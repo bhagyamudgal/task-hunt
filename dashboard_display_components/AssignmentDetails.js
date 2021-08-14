@@ -8,12 +8,15 @@ import firebase from "firebase/app";
 import "firebase/storage";
 import { nanoid } from "nanoid";
 import { useSession } from "next-auth/client";
+import { useRouter } from "next/router";
 
 function AssignmentDetails(props) {
+  const router = useRouter();
   const fileRef = useRef();
   const dispatch = useDispatch();
   const [session, loadingSession] = useSession();
   const [loading, setLoading] = useState(false);
+  const [reload, setReload] = useState(false);
   const [error, seterror] = useState("");
   const [successToggle, setSuccessToggle] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
@@ -35,10 +38,11 @@ function AssignmentDetails(props) {
     return downloadURL;
   }
 
-  function deleteHandler() {}
-
   function detailsHandler() {
     dispatch(assignmentDetailsActions.setDisplayDetails(false));
+  }
+  function detailsHandler2() {
+    router.push("/dashboard/assignments");
   }
 
   let subject;
@@ -105,7 +109,6 @@ function AssignmentDetails(props) {
         const data = await response.json();
 
         if (!response.ok) {
-          
           setLoading(false);
           setSuccessMessage(data.message);
           setSuccessToggle(true);
@@ -115,6 +118,34 @@ function AssignmentDetails(props) {
           setSuccessToggle(true);
         }
       }
+    }
+  }
+
+  async function deleteHandler() {
+    setLoading(true);
+
+    const response = await fetch("/api/deleteAssignment", {
+      method: "PATCH",
+      body: JSON.stringify({
+        assignmentId,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setLoading(false);
+      setSuccessMessage("Internal Server Error!");
+      setReload(true);
+      setSuccessToggle(true);
+    } else {
+      setLoading(false);
+      setSuccessMessage(data.message);
+      setReload(true);
+      setSuccessToggle(true);
     }
   }
 
@@ -132,9 +163,15 @@ function AssignmentDetails(props) {
           <div className={styles.success_div}>
             <h4>{successMessage}</h4>
             <span className={styles.backbtn}>
-              <button type="button" onClick={detailsHandler}>
-                Back
-              </button>
+              {reload ? (
+                <button type="button" onClick={detailsHandler2}>
+                  Back
+                </button>
+              ) : (
+                <button type="button" onClick={detailsHandler}>
+                  Back
+                </button>
+              )}
             </span>
           </div>
         ) : (

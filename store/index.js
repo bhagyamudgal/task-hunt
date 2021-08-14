@@ -12,6 +12,7 @@ const assignmentDetailsSlice = createSlice({
     },
   },
 });
+
 const changePasswordDetailsSlice = createSlice({
   name: "changePasswordDetails",
   initialState: { displayChangePasswordDetails: false },
@@ -34,6 +35,7 @@ const createAssignmentSlice = createSlice({
 const store = configureStore({
   reducer: {
     assignmentDetails: assignmentDetailsSlice.reducer,
+    
     changePasswordDetails: changePasswordDetailsSlice.reducer,
     createAssignment: createAssignmentSlice.reducer,
   },

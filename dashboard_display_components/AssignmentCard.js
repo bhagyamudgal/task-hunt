@@ -3,18 +3,25 @@ import styles from "./AssignmentCard.module.css";
 import Image from "next/image";
 import { assignmentDetailsActions } from "../store/index";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 function AssignmentCard(props) {
+  const router = useRouter();
   const dispatch = useDispatch();
   function detailsHandler() {
     dispatch(assignmentDetailsActions.setDisplayDetails(true));
+
     dispatch(assignmentDetailsActions.setId(props.id));
   }
   return (
     <div className={styles.assignment_body}>
       <span className={styles.container}>
         <span className={styles.subject_div}>
-          <h4>{props.subject} Assignment</h4>
+          {router.pathname === "/dashboard/reports" ? (
+            <h4>{props.name}</h4>
+          ) : (
+            <h4>{props.subject} Assignment</h4>
+          )}
         </span>
         <span className={styles.date_div}>
           <span className={styles.date_icon_div}>
@@ -26,7 +33,11 @@ function AssignmentCard(props) {
             />
           </span>
 
-          <h4>{props.duedate}</h4>
+          {router.pathname === "/dashboard/reports" ? (
+            <h4>{props.submitDate}</h4>
+          ) : (
+            <h4>{props.duedate}</h4>
+          )}
         </span>
       </span>
 

@@ -1,18 +1,23 @@
 import React from "react";
+import { connectToDatabase } from "../../lib/db";
 import { getSession } from "next-auth/client";
 import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
-import DashboardProfile from "../../components/DashboardProfile";
-import DashboardBody from "../../dashboard_display_components/DashboardBody";
+import StudentAssignmentsBody from "../../dashboard_display_components/StudentAssignmentsBody";
+import store from "../../store/index";
+import { Provider } from "react-redux";
 
 function DashboardReportsPage(props) {
   return (
-    <>
+    <Provider store={store}>
       <LayoutDashboard usertype={props.session.user.usertype}>
         <DashboardDisplay>
+          <StudentAssignmentsBody
+            studentAssignments={JSON.parse(props.studentAssignments)}
+          />
         </DashboardDisplay>
       </LayoutDashboard>
-    </>
+    </Provider>
   );
 }
 
@@ -45,9 +50,21 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
+  const client = await connectToDatabase();
+  const db = client.db("assignments");
+
+  let studentAssignments = await db
+    .collection("student")
+    .find({
+      subject: session.user.subject,
+    })
+    .toArray();
+
+  console.log(studentAssignments);
+  let obj = JSON.stringify(studentAssignments);
 
   return {
-    props: { session },
+    props: { session, studentAssignments: obj },
   };
 };
 export default DashboardReportsPage;
