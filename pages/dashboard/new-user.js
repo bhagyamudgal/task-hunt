@@ -4,7 +4,7 @@ import LayoutDashboard from "../../layout/LayoutDashboard";
 import DashboardDisplay from "../../components/DashboardDisplay";
 import NewPassword from "../../dashboard_display_components/NewPassword";
 
-function DashboardHomePage() {
+function DashboardHomePage(props) {
   return (
     <>
       <div>

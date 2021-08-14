@@ -39,13 +39,13 @@ async function handler(req, res) {
   }
 
   const hashedNewPassword = await hash(newPassword, 12);
-  usersCollection.updateOne(
+  await usersCollection.updateOne(
     { username: username },
     { $set: { password: hashedNewPassword } }
   );
 
   if (session.user.newuser === true) {
-    usersCollection.updateOne(
+    await usersCollection.updateOne(
       { username: username },
       { $set: { newuser: false } }
     );

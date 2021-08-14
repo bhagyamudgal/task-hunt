@@ -50,13 +50,14 @@ async function handler(req, res) {
   }
 
   const hashedNewPassword = await hash(newPassword, 12);
-  usersCollection.updateOne(
+  const result = await usersCollection.updateOne(
     { username: username },
     { $set: { password: hashedNewPassword } }
   );
-
+  if (result) {
+    res.status(200).json({ message: "Password Successfully Changed." });
+  }
   client.close();
-  res.status(200).json({ message: "Password Successfully Changed." });
 }
 
 export default handler;

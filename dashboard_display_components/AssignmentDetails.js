@@ -84,7 +84,7 @@ function AssignmentDetails(props) {
       let fileURL = await uploadFile();
       setLoading(true);
       if (fileURL !== undefined || fileURL !== null) {
-        const response = await fetch("/api/submitAssignment", {
+        const response = await fetch("/api/auth/submitAssignment", {
           method: "POST",
           body: JSON.stringify({
             title,
@@ -124,7 +124,7 @@ function AssignmentDetails(props) {
   async function deleteHandler() {
     setLoading(true);
 
-    const response = await fetch("/api/deleteAssignment", {
+    const response = await fetch("/api/auth/deleteAssignment", {
       method: "PATCH",
       body: JSON.stringify({
         assignmentId,
