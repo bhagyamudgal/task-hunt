@@ -9,7 +9,16 @@ async function handler(req, res) {
   }
   const data = req.body;
 
-  const { name, email, gender, subject, post, organization } = data;
+  const {
+    studentID,
+    name,
+    email,
+    gender,
+    course,
+    year,
+    semester,
+    organization,
+  } = data;
 
   if (validator.isEmail(email) !== true) {
     res.status(422).json({ message: "Invalid Email" });
@@ -19,17 +28,19 @@ async function handler(req, res) {
 
   const db = client.db("users");
 
-  const existingUser = await db
-    .collection("teachers")
-    .findOne({ email: email, organization: organization });
+  const existingUser = await db.collection("students").findOne({
+    studentID: studentID,
+    email: email,
+    organization: organization,
+  });
 
   if (existingUser) {
-    res.status(422).json({ message: "Teacher already exist." });
+    res.status(422).json({ message: "Student already exist." });
     client.close();
     return;
   }
 
-  const username = email;
+  const username = name.split(" ").join("").toLowerCase() + studentID;
   const password = generator.generate({
     length: 10,
     numbers: true,
@@ -39,20 +50,23 @@ async function handler(req, res) {
   const hashPassword = await hash(password, 12);
   const lastlogin = null;
 
-  db.collection("teachers").insertOne({
+  const result = await db.collection("students").insertOne({
+    studentID: studentID,
     name: name,
     email: email,
     gender: gender,
-    subject: subject,
-    post: post,
+    course: course,
+    year: year,
+    semester: semester,
     organization: organization,
     username: username,
     password: hashPassword,
-    usertype: "teacher",
+    usertype: "student",
     newuser: true,
   });
-
-  res.status(201).json({ message: "Teacher created successfully" });
+  if (result) {
+    res.status(201).json({ message: "Student registered successfully" });
+  }
   client.close();
 }
 
