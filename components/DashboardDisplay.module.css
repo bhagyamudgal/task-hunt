@@ -1,6 +1,7 @@
 .display_main {
   width: 65vw;
-  height: 65vh;
+  height: 700px;
+  min-height: 700px;
   background-color: var(--red);
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -10,4 +11,23 @@
 }
 .width {
   width: 85vw;
+}
+
+@media only screen and (max-width: 1410px) {
+  .display_main {
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .display_main {
+    width: 95vw;
+    height: 400px;
+    min-height: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+  
 }

@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./StudentAssignments.module.css";
 import AssignmentCard from "./AssignmentCard";
 import { useRouter } from "next/router";
 
+
 function StudentAssignments(props) {
   const router = useRouter();
+  const [empty, setEmpty] = useState(false);
+  useEffect(() => {
+    if (router.pathname === "/dashboard/reports") {
+      if (props.studentAssignments === undefined) {
+        setEmpty(true);
+      } else {
+        setEmpty(false);
+      }
+    } else {
+      if (props.assignments === undefined) {
+        setEmpty(true);
+      } else {
+        setEmpty(false);
+      }
+    }
+  }, []);
+
   return (
     <>
       <div className={styles.heading_div}>
@@ -15,18 +33,13 @@ function StudentAssignments(props) {
         )}
       </div>
       <div className={styles.assignment_div}>
-        {router.pathname === "/dashboard/reports"
-          ? props.studentAssignments === undefined && (
-              <div className={styles.empty}>
-                <h3>No Assignments to Show.</h3>
-              </div>
-            )
-          : props.assignment === undefined && (
-              <div className={styles.empty}>
-                <h3>No Assignments to Show.</h3>
-              </div>
-            )}
-
+        {empty ? (
+          <div className={styles.empty}>
+            <h3>No Assignments to Show.</h3>
+          </div>
+        ) : (
+          <></>
+        )}
         {router.pathname === "/dashboard/reports"
           ? props.studentAssignments.map((studentAssignment) => {
               return (

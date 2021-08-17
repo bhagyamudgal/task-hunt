@@ -1,7 +1,8 @@
 .display_button {
   display: flex;
-  width: 20%;
-  height: 25%;
+  width: 23%;
+  min-width: 240px;
+  height: 150px;
   background: var(--white);
   border-radius: 20px;
   font-family: Poppins;
@@ -21,4 +22,26 @@
   background-color: var(--orange);
   color: white;
   border: 4px solid white;
+}
+
+@media only screen and (max-width: 1550px) {
+  .display_button {
+    font-size: 16px;
+    min-width: 220px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .display_button {
+    margin: 20px auto;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .display_button {
+    display: flex;
+    width: 95%;
+    height: 80px;
+    font-size: 16px;
+    margin: 20px auto;
+  }
 }

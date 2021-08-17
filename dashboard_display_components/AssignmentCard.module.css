@@ -91,3 +91,34 @@
   visibility: visible;
   opacity: 1;
 }
+
+@media only screen and (max-width: 880px) {
+  .container {
+    width: 60%;
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .subject_div {
+    margin: 5px;
+    text-align: center;
+    min-width: initial;
+  }
+  .container {
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .assignment_body {
+    flex-direction: column;
+  }
+  .date_div {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  .button_div {
+    margin-bottom: 20px;
+  }
+}

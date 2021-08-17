@@ -1,4 +1,13 @@
-.buttons_div{
-    height: 100%;
-    display: flex;
+.buttons_div {
+  height: 200px;
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 880px) {
+  .buttons_div {
+    height: 80px;
+    min-height: 80px;
+  }
 }

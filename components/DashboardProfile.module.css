@@ -1,6 +1,7 @@
 .profile_main {
-  width: 380px;
-  height: 280px;
+  width: 300px;
+  min-width: 300px;
+  height: 300px;
   background-color: var(--red);
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -36,4 +37,40 @@
   font-weight: normal;
   font-size: 32px;
   color: var(--pureWhite);
+}
+
+@media only screen and (max-width: 1410px) {
+  .profile_main {
+    margin: 20px;
+  }
+}
+@media only screen and (max-width: 1040px) {
+  .profile_main {
+    width: 260px;
+    min-width: 260px;
+    height: 240px;
+  }
+  .name h3 {
+    font-size: 36px;
+  }
+
+  .user_type h4,
+  .course h4,
+  .year h4,
+  .semester h4,
+  .organization h4,
+  .post h4,
+  .subject h4 {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .profile_main {
+    width: 75vw;
+    height: 180px;
+    min-height: 180px;
+    margin: 20px auto;
+  }
+  
 }

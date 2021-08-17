@@ -195,10 +195,16 @@ function CreateAssignment() {
               <option value="" disabled>
                 Please Choose One Option
               </option>
-              <option value="Maths">Maths</option>
+              <option value="Mathematics">Mathematics</option>
               <option value="Computer Networks">Computer Networks</option>
-              <option value="DSA">DSA</option>
-              <option value="FIT">FIT</option>
+              <option value="Data Structures and Algorithms">
+                Data Structures and Algorithms
+              </option>
+              <option value="Foundation of Information Technology">
+                Foundation of Information Technology
+              </option>
+              <option value="OOPS with C++">OOPS with C++</option>
+              <option value="Java">Java</option>
             </select>
           </div>
           <div className={styles.form_elements}>

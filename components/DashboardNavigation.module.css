@@ -1,6 +1,7 @@
 .navigation {
   width: 100px;
-  height: 65vh;
+  height: 700px;
+  min-height: 700px;
   margin: 40px;
   background: var(--red);
   box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
@@ -145,4 +146,103 @@
 .item_span_end:hover .tooltip_text {
   visibility: visible;
   opacity: 1;
+}
+
+@media only screen and (max-width: 1410px) {
+  .navigation {
+    margin: 20px;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .navigation {
+    width: 75vw;
+    min-width: 355px;
+    height: 100px;
+    min-height: 100px;
+    margin: 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-direction: row;
+    justify-content: initial;
+    align-items: center;
+  }
+  .navigation_item_body {
+    width: 60vw;
+    min-width: 255px;
+    flex-direction: row;
+  }
+  .item_span_end {
+    height: 60px;
+    margin: 10px;
+  }
+  .item_span .tooltip_text {
+    /* Position the tooltip text */
+    left: 0%;
+    margin-left: -25px;
+    bottom: 100%;
+    margin-bottom: 20px;
+  }
+  .item_span_focus .tooltip_text {
+    /* Position the tooltip text */
+    left: 0%;
+    margin-left: -25px;
+    bottom: 100%;
+    margin-bottom: 20px;
+  }
+  .item_span_end .tooltip_text {
+    /* Position the tooltip text */
+    left: 0%;
+    margin-left: -25px;
+    bottom: 100%;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .navigation {
+    min-width: 290px;
+  }
+  .navigation_item_body {
+    min-width: 210px;
+  }
+  .item_span {
+    width: 45px;
+    height: 45px;
+  }
+  .item_span_focus {
+    width: 45px;
+    height: 45px;
+  }
+  .item_span img {
+    width: 30px;
+    height: 30px;
+  }
+  .item_span_end img {
+    width: 30px;
+    height: 30px;
+  }
+  .item_span_focus img {
+    width: 30px;
+    height: 30px;
+  }
+  .item_span .tooltip_text {
+    /* Position the tooltip text */
+    left: 0%;
+    margin-left: -33px;
+    bottom: 100%;
+    margin-bottom: 20px;
+  }
+  .item_span_focus .tooltip_text {
+    /* Position the tooltip text */
+    left: 0%;
+    margin-left: -33px;
+    bottom: 100%;
+    margin-bottom: 20px;
+  }
+  .item_span_end .tooltip_text {
+    /* Position the tooltip text */
+    left: 0%;
+    margin-left: -33px;
+    bottom: 100%;
+    margin-bottom: 20px;
+  }
 }

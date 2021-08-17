@@ -25,19 +25,22 @@
   justify-content: center;
 }
 
-.waves_div {
-  display: flex;
-  align-items: flex-end;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
 .main {
+  height: 750px;
   display: flex;
   flex-direction: row;
+  min-height: 750px;
 }
 
 .body {
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 880px) {
+  .main {
+    flex-direction: column-reverse;
+    height: initial;
+    min-height: initial;
+  }
 }

@@ -20,14 +20,6 @@ function LayoutDashboard(props) {
           )}
           {props.children}
         </main>
-        <div className={styles.waves_div}>
-          <Image
-            width="2560px"
-            height="250px"
-            src="/waves-bottom.svg"
-            alt="waves-bottom"
-          />
-        </div>
       </div>
     </>
   );
