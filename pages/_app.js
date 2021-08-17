@@ -15,30 +15,32 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
 
   function loadingHandler() {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    if (
+      router.asPath === "/dashboard/assignments" ||
+      router.asPath === "/dashboard/reports"
+    ) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 6000);
+    } else {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
   }
 
   useEffect(() => {
-    const handleStart = (url) => {
-      url !== router.asPath && setLoading(true);
-    };
-
-    // const handleComplete = (url) => {
-    //   setTimeout(() => {
-    //     setLoading(false);
-    //   }, 2000);
-    // };
+    const handleStart = (url) => url !== router.asPath && setLoading(true);
+    const handleComplete = (url) => url === router.asPath && loadingHandler();
 
     router.events.on("routeChangeStart", handleStart);
-    // router.events.on("routeChangeComplete", handleComplete);
-    // router.events.on("routeChangeError", handleComplete);
+    router.events.on("routeChangeComplete", handleComplete);
+    router.events.on("routeChangeError", handleComplete);
 
     return () => {
       router.events.off("routeChangeStart", handleStart);
-      // router.events.off("routeChangeComplete", handleComplete);
-      // router.events.off("routeChangeError", handleComplete);
+      router.events.off("routeChangeComplete", handleComplete);
+      router.events.off("routeChangeError", handleComplete);
     };
   });
 
