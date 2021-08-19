@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 95%;
-  height: 80%;
+  height: 750px;
   margin: 40px auto;
   font-family: Poppins;
   font-style: normal;
@@ -14,31 +14,34 @@
 }
 
 .section1 {
-  margin: 10px 0px;
+  margin: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .heading {
   display: flex;
-  width: 400px;
-  height: 76px;
+  width: 420px;
+  height: 90px;
   background: var(--white);
+  padding: 5px;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
+  text-align: center;
 }
 .title {
   display: flex;
-  width: 550px;
-  height: 55px;
+  width: 570px;
+  height: 60px;
   background: var(--white);
   border-radius: 20px;
   align-items: center;
   justify-content: center;
   font-size: 22px;
   margin-bottom: 20px;
+  text-align: center;
 }
 .date {
   display: flex;
@@ -51,19 +54,19 @@
   font-size: 22px;
 }
 .section2 {
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
 .description {
   display: flex;
   width: 100%;
-  min-height: 20vh;
+  height: 200px;
   background: var(--white);
   border-radius: 20px;
   padding: 10px;
   font-size: 22px;
 }
 .section3 {
-  margin: 10px 0px;
+  margin: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,7 +83,7 @@
   border: 2px solid white;
 }
 .section4 {
-  margin: 10px 0px;
+  margin: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,4 +152,53 @@
   background-color: var(--orange);
   color: white;
   border: 2px solid white;
+}
+
+@media only screen and (max-width: 740px) {
+  .section1 {
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px auto 10px auto;
+  }
+  .date {
+    margin-top: 20px;
+  }
+  .section2 {
+    display: flex;
+    margin: 20px 0px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .title {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .section3 {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .add_files_div {
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 465px) {
+  .heading {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .heading {
+    height: 120px;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .section4 {
+    flex-direction: column;
+  }
+  .submit_div{
+    margin-bottom: 20px;
+  }
 }

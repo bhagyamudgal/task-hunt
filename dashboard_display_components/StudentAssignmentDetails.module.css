@@ -1,153 +1,188 @@
 .assignment_body_div {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    height: 80%;
-    margin: 40px auto;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-  }
-  .center {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 80%;
+  margin: 40px auto;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+}
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.section1 {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heading {
+  display: flex;
+  width: 420px;
+  height: 90px;
+  background: var(--white);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-align: center;
+  padding: 5px;
+}
+.title {
+  display: flex;
+  width: 570px;
+  height: 90px;
+  background: var(--white);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.date {
+  display: flex;
+  width: 183px;
+  height: 61px;
+  background: var(--white);
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+.section2 {
+  margin: 20px 0px;
+}
+.description {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 22px;
+}
+.section3 {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section4 {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.attached_files_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.attached_files_div img {
+  margin-right: 5px;
+}
+
+.back_div button {
+  width: 137px;
+  height: 61px;
+  border: none;
+  background: var(--white);
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+.back_div {
+  margin-bottom: 20px;
+}
+.back_div button:hover {
+  background-color: var(--orange);
+  border: 2px solid white;
+  color: white;
+}
+
+.success_div {
+  width: 70%;
+  margin: auto;
+  color: var(--pureWhite);
+  font-size: 20px;
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.backbtn button {
+  width: 137px;
+  height: 61px;
+  border: none;
+  background: var(--white);
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+.backbtn button:hover {
+  background-color: var(--orange);
+  color: white;
+  border: 2px solid white;
+}
+
+@media only screen and (max-width: 880px) {
+  .section4 {
     align-items: center;
     justify-content: center;
   }
-  
+}
+@media only screen and (max-width: 740px) {
   .section1 {
-    margin: 10px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .heading {
-    display: flex;
-    width: 400px;
-    height: 76px;
-    background: var(--white);
-    border-radius: 20px;
-    align-items: center;
     justify-content: center;
-    font-size: 24px;
-  }
-  .title {
-    display: flex;
-    width: 550px;
-    height: 55px;
-    background: var(--white);
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-bottom: 20px;
+    flex-direction: column;
+    margin: 20px auto 10px auto;
   }
   .date {
-    display: flex;
-    width: 183px;
-    height: 61px;
-    background: var(--white);
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
+    margin-top: 20px;
   }
   .section2 {
-    margin: 10px 0px;
-  }
-  .description {
     display: flex;
+    margin: 20px 0px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .title {
     width: 100%;
-    min-height: 20vh;
-    background: var(--white);
-    border-radius: 20px;
-    padding: 10px;
-    font-size: 22px;
   }
+}
+@media only screen and (max-width: 650px) {
   .section3 {
-    margin: 10px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
-  
-  .add_files_div label {
-    font-size: 18px;
-    color: white;
-    margin-right: 5px;
+  .add_files_div {
+    margin-bottom: 20px;
   }
-  .add_files_div button:hover {
-    background-color: var(--orange);
-    color: white;
-    border: 2px solid white;
+}
+@media only screen and (max-width: 465px) {
+  .heading {
+    width: 100%;
   }
+}
+@media only screen and (max-width: 440px) {
+  .heading {
+    height: 120px;
+  }
+}
+@media only screen and (max-width: 440px) {
   .section4 {
-    margin: 10px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
   }
-  
-  .attached_files_div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .submit_div {
+    margin-bottom: 20px;
   }
-  .attached_files_div img {
-    margin-right: 5px;
-  }
-  
-  .submit_div button {
-    width: 137px;
-    height: 61px;
-    border: none;
-    background: var(--white);
-    border-radius: 20px;
-    font-size: 18px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .submit_div button:hover {
-    background-color: var(--orange);
-    border: 2px solid white;
-    color: white;
-  }
-  .back_div button {
-    width: 137px;
-    height: 61px;
-    border: none;
-    background: var(--white);
-    border-radius: 20px;
-    font-size: 18px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .back_div button:hover {
-    background-color: var(--orange);
-    border: 2px solid white;
-    color: white;
-  }
-  
-  .success_div {
-    width: 70%;
-    margin: auto;
-    color: var(--pureWhite);
-    font-size: 20px;
-    font-family: "Poppins";
-    text-align: center;
-  }
-  
-  .backbtn button {
-    width: 137px;
-    height: 61px;
-    border: none;
-    background: var(--white);
-    border-radius: 20px;
-    font-size: 18px;
-    cursor: pointer;
-    user-select: none;
-  }
-  .backbtn button:hover {
-    background-color: var(--orange);
-    color: white;
-    border: 2px solid white;
-  }
-  
+}

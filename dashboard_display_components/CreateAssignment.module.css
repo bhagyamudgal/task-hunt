@@ -76,7 +76,6 @@
   align-items: center;
 }
 
-
 .success_div {
   width: 70%;
   margin: auto;
@@ -140,4 +139,29 @@
 }
 .form::-webkit-scrollbar-thumb:hover {
   background-color: rgb(245, 117, 78);
+}
+
+@media only screen and (max-width: 1250px) {
+  .form_elements {
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+  }
+  .label {
+    width: 90%;
+  }
+
+  .input {
+    width: 90%;
+  }
+  .form_elements select {
+    width: 90%;
+  }
+  .form_elements textarea {
+    width: 90%;
+  }
+  .button{
+    margin-bottom: 20px;
+  }
 }
