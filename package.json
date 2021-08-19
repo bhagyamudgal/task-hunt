@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
+    "@sendgrid/mail": "^7.4.6",
     "bcryptjs": "^2.4.3",
     "firebase": "^8.7.1",
     "generate-password": "^1.6.0",
