@@ -6,10 +6,22 @@ import DashboardProfile from "../../components/DashboardProfile";
 import DashboardBody from "../../dashboard_display_components/DashboardBody";
 import { Provider } from "react-redux";
 import store from "../../store/index";
+import Head from "next/head";
 
 function DashboardHomePage(props) {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Dashboard | Task Hunt</title>
+
+        <meta name="title" content="Dashboard | Task Hunt" />
+
+        <meta name="robots" content="noindex, nofollow" />
+        <meta content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+
+        <meta name="author" content="Task Hunt - Bhagya Mudgal" />
+      </Head>
       <LayoutDashboard usertype={props.session.user.usertype}>
         <DashboardDisplay>
           <DashboardBody usertype={props.session.user.usertype} />
@@ -59,7 +71,7 @@ export const getServerSideProps = async (ctx) => {
       },
     };
   }
-  
+
   return {
     props: { session },
   };

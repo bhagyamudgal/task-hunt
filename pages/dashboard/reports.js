@@ -6,10 +6,22 @@ import DashboardDisplay from "../../components/DashboardDisplay";
 import StudentAssignmentsBody from "../../dashboard_display_components/StudentAssignmentsBody";
 import store from "../../store/index";
 import { Provider } from "react-redux";
+import Head from "next/head";
 
 function DashboardReportsPage(props) {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Reports | Task Hunt</title>
+
+        <meta name="title" content="Reports | Task Hunt" />
+
+        <meta name="robots" content="noindex, nofollow" />
+        <meta content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+
+        <meta name="author" content="Task Hunt - Bhagya Mudgal" />
+      </Head>
       <LayoutDashboard usertype={props.session.user.usertype}>
         <DashboardDisplay>
           <StudentAssignmentsBody

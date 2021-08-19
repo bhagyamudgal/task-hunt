@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./AssignmentDetails.module.css";
 import Image from "next/image";
 import { assignmentDetailsActions } from "../store/index";
