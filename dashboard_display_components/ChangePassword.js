@@ -71,9 +71,9 @@ function ChangePassword() {
 
   async function changePasswordFormHandler(event) {
     event.preventDefault();
-    console.log(oldPassword);
-    console.log(newPassword);
-    console.log(confirmNewPassword);
+    // console.log(oldPassword);
+    // console.log(newPassword);
+    // console.log(confirmNewPassword);
 
     if (newPassword !== confirmNewPassword) {
       seterrorToggle(true);

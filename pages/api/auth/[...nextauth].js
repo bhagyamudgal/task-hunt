@@ -113,7 +113,7 @@ export default NextAuth({
       //  "session" is current session object
       //  below we set "user" param of "session" to value received from "jwt" callback
       session.user = token.user;
-      console.log(session);
+      // console.log(session);
       return Promise.resolve(session);
     },
   },

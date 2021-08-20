@@ -72,7 +72,7 @@ export const getServerSideProps = async (ctx) => {
     })
     .toArray();
 
-  console.log(studentAssignments);
+  // console.log(studentAssignments);
   let obj = JSON.stringify(studentAssignments);
 
   return {

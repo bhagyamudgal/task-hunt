@@ -74,7 +74,7 @@ export const getServerSideProps = async (ctx) => {
       .toArray();
   }
 
-  console.log(assignments);
+  // console.log(assignments);
   let obj = JSON.stringify(assignments);
   return {
     props: { session, assignments: obj },

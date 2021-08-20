@@ -24,7 +24,7 @@ async function handler(req, res) {
     .collection("teacher")
     .deleteOne({ _id: ObjectId(assignmentId) });
 
-  console.log(result.deletedCount);
+  // console.log(result.deletedCount);
   res.status(201).json({ message: "Assignment Deleted Successfully" });
   client.close();
 }
