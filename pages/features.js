@@ -33,9 +33,9 @@ function FeaturesPage() {
               All in one platform for teachers and students to work on
               assignments.
             </li>
-            <li>Share assignments in few minutes.</li>
-            <li>Notification for every assignment shared.</li>
-            <li>Grade assignments and generate report.</li>
+            <li>Share assignments hassle free within few minutes.</li>
+            <li>Interactive User Interface.</li>
+            <li>Generate report for student submissions.</li>
           </ul>
         </div>
       </div>

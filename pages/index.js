@@ -11,7 +11,7 @@ function HomePage(props) {
         <meta name="title" content="Home | Task Hunt" />
         <meta
           name="description"
-          content="Task Hunt, all in one solution for tracking assignments. Easy to use and handle by teachers and students."
+          content="Task Hunt, all in one solution for managing and tracking assignments. Easy to use by teachers and students."
         />
         <meta
           name="keywords"
@@ -24,7 +24,7 @@ function HomePage(props) {
         <meta name="author" content="Task Hunt - Bhagya Mudgal" />
       </Head>
       <div className={styles.heading_div}>
-        <h1>A well designed solution for tracking Assignments.</h1>
+        <h1>A well designed solution for managing and tracking assignments.</h1>
       </div>
 
       <div className={styles.button_div}>
