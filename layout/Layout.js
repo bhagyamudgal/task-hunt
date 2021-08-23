@@ -7,10 +7,9 @@ function Layout(props) {
   return (
     <>
       <div
-        onLoad={props.onload()}
-        className={`${props.loading ? "none" : "block"} ${
-          router.pathname === "/" && "body_home"
-        }`}
+        className={`
+        ${props.initialLoading ? "none" : props.loading ? "none" : "block"}
+       ${router.pathname === "/" && "body_home"}`}
       >
         <style jsx>{`
           .body_home {
@@ -25,6 +24,7 @@ function Layout(props) {
           .block {
             display: block;
           }
+
           .main {
             position: relative;
             overflow: hidden;

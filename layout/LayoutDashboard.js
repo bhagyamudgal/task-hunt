@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./LayoutDashboard.module.css";
 import DashboardNavigation from "../components/DashboardNavigation";
-import Image from "next/image";
 import { useRouter } from "next/router";
 
 function LayoutDashboard(props) {
