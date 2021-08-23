@@ -32,7 +32,7 @@ function DashboardBody(props) {
   return (
     <>
       {createAssignment ? (
-        <CreateAssignment />
+        <CreateAssignment subject={props.subject} />
       ) : (
         <div className={styles.buttons_div}>
           <DisplayButton

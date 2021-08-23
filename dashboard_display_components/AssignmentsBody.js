@@ -20,7 +20,7 @@ function AssignmentsBody(props) {
 
   return (
     <>
-      {console.log(props.assignments)}
+      {/* {console.log(props.assignments)} */}
       {displayDetails ? (
         <AssignmentDetails id={assignmentId} assignments={props.assignments} />
       ) : (

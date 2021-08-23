@@ -3,25 +3,26 @@ import styles from "./StudentAssignments.module.css";
 import AssignmentCard from "./AssignmentCard";
 import { useRouter } from "next/router";
 
-
 function StudentAssignments(props) {
   const router = useRouter();
   const [empty, setEmpty] = useState(false);
   useEffect(() => {
     if (router.pathname === "/dashboard/reports") {
-      if (props.studentAssignments === undefined) {
+      if (props.studentAssignments.length === 0) {
         setEmpty(true);
       } else {
         setEmpty(false);
       }
     } else {
-      if (props.assignments === undefined) {
+      if (props.assignments.length === 0) {
         setEmpty(true);
       } else {
         setEmpty(false);
       }
     }
-  }, []);
+  }, [props.assignments, props.studentAssignments, router.pathname]);
+
+  // console.log(props.assignments);
 
   return (
     <>
@@ -33,12 +34,10 @@ function StudentAssignments(props) {
         )}
       </div>
       <div className={styles.assignment_div}>
-        {empty ? (
+        {empty && (
           <div className={styles.empty}>
             <h3>No Assignments to Show.</h3>
           </div>
-        ) : (
-          <></>
         )}
         {router.pathname === "/dashboard/reports"
           ? props.studentAssignments.map((studentAssignment) => {

@@ -9,7 +9,7 @@ import firebase from "firebase/app";
 import "firebase/storage";
 import { nanoid } from "nanoid";
 
-function CreateAssignment() {
+function CreateAssignment(props) {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
@@ -195,8 +195,8 @@ function CreateAssignment() {
               <option value="" disabled>
                 Please Choose One Option
               </option>
-              <option value="Mathematics">Mathematics</option>
-              <option value="Computer Networks">Computer Networks</option>
+              <option value={props.subject}>{props.subject}</option>
+              {/* <option value="Computer Networks">Computer Networks</option>
               <option value="Data Structures and Algorithms">
                 Data Structures and Algorithms
               </option>
@@ -204,7 +204,7 @@ function CreateAssignment() {
                 Foundation of Information Technology
               </option>
               <option value="OOPS with C++">OOPS with C++</option>
-              <option value="Java">Java</option>
+              <option value="Java">Java</option> */}
             </select>
           </div>
           <div className={styles.form_elements}>

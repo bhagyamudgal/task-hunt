@@ -20,7 +20,7 @@ function StudentAssignmentsBody(props) {
 
   return (
     <>
-      {console.log(props.studentAssignments)}
+      {/* {console.log(props.studentAssignments)} */}
       {displayDetails ? (
         <StudentAssignmentDetails
           id={assignmentId}

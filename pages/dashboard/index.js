@@ -24,7 +24,7 @@ function DashboardHomePage(props) {
       </Head>
       <LayoutDashboard usertype={props.session.user.usertype}>
         <DashboardDisplay>
-          <DashboardBody usertype={props.session.user.usertype} />
+          <DashboardBody usertype={props.session.user.usertype} subject={props.session.user.subject}/>
         </DashboardDisplay>
         {props.session.user.usertype === "student" && (
           <DashboardProfile
