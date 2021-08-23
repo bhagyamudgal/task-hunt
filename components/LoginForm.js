@@ -1,5 +1,4 @@
 import React from "react";
-import Input from "../components/Input";
 import Label from "../components/Label";
 import FormButton from "../components/FormButton";
 import LoadingForm from "../components/LoadingForm";
