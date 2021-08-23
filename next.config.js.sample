@@ -1,4 +1,8 @@
-module.exports = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
+module.exports =  withBundleAnalyzer({
   reactStrictMode: true,
   env: {
     MONGODB: "YOUR_MONGODB_API_KEY_HERE",
@@ -10,4 +14,4 @@ module.exports = {
     appId: "YOUR_APP_ID_HERE",
     SENDGRID_API_KEY: "YOUR_SENDGRID_API_KEY_HERE"
   },
-};
+});
