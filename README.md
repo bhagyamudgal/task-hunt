@@ -19,6 +19,20 @@ Designed and Developed By Bhagya Mudgal.
 - Students can view assignments and submit them after their completion.
 - Teachers can view submission reports and grade them accordingly.
 
+## Login With Test Accounts
+
+#### Student
+
+- Username: `student@taskhunt.com`
+
+- Password: `student`
+
+#### Teacher
+
+- Username: `teacher@taskhunt.com`
+
+- Password: `teacher`
+
   
 ## Tech Stack
 
