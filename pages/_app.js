@@ -9,9 +9,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import firebase from "../lib/initFirebase";
 
-firebase();
-
 function MyApp({ Component, pageProps }) {
+  firebase();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   let state;
