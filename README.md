@@ -6,7 +6,7 @@
 
 Assignment Management Web Application built using NextJS with a motive to help students and teachers to easily share and grade assignments. 
 
-Link - https://task-hunt.vercel.app/
+Link - https://taskhunt.vercel.app/
 
 Designed and Developed By Bhagya Mudgal.
 
