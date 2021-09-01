@@ -144,7 +144,7 @@ To run this project, you will need to add the following environment variables to
 
 `projectId`
 
-`storageBucket`
+`NEXT_PUBLIC_storageBucket`
 
 `messagingSenderId`
 
