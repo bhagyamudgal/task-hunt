@@ -104,7 +104,7 @@ https://drive.google.com/file/d/1vsVqFGv8wAATcg8WAYKkRmYRF7hsXPm0/view?usp=shari
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/bhagyamudgal/task-hunt.git
 ```
 
 Go to the project directory
